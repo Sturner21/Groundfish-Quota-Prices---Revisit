@@ -1,0 +1,945 @@
+---
+title: "Fishy Business"
+author: "Sam Turner"
+abstract: "The Northeast United States Multispecies Fishery (NMGF) implemented a catch-share program in 2010. This program, a modified Individual Transfer Quota (ITQ) system, uses self-organized fishermen groups known as sectors to allocate fishing quotas. However, there are transaction costs associated with inter-sector trades of these quotas, which act as barriers to trade and prevent efficient allocation. At the same time, climate change is causing NMGF stocks to relocate both farther north and into deeper waters to escape a variety of unfavorable environmental conditions. Utilizing panel data from 2010 to 2019, this study examines how climate change, in tandem with the aforementioned transaction costs, influenced NMGF quota market. This study expands on the econometric models used in previous literature to measure NMGF quota market efficacy. Results suggest that sea surface heatwaves impacted quota prices, reflecting increased fishing costs from stocks shifting. While hurdle models and an OLS model were employed, the hurdle models exhibited much stronger evidence of climate change affecting quota prices than the OLS model did. These mixed findings underline the econometric complexity of discerning market efficiency, especially for an immature market like the NMGF quota market. As climate change continues to affect stocks and transaction costs prevent efficient allocation, policymakers and regulators face the challenge of preparing the NMGF ITQ system to mitigate potential environmentally induced collapses, ensuring its resilience in the face of climate change."
+format: 
+  html:
+    number-sections: true
+    toc: true
+    toc-location: left
+    toc-expand: true
+editor: visual
+bibliography: 3-28.bib
+csl: apa.csl
+execute: 
+  echo: false
+---
+
+# Introduction {#sec-Introduction}
+
+To achieve the economic and biological goals outlined in the Magnuson-Stevens Act, the Northeast Multispecies Fishery (NMGF) implemented a catch-share program in 2010 [@werner_economic_2022]. This catch-share program is a modified Individual Transfer Quota (ITQ) system. As Lee and Demarest (2023) highlight, ITQ systems have been shown to have many positive attributes for fisheries such as increases to productivity [@fare_productivity_2015; @walden_productivity_2012; @weninger_assessing_1998], to revenue [@kroetz_evaluation_2017; @scheld_economic_2012], to profitability [@fox_property_2003], to output quality [@ardini_ifqs_2018; @casey_effects_1995; @kroetz_examination_2019], to prices [@dupont_profit_2005; @pincinato_impact_2022], to safety [@pfeiffer_effect_2016], and to crew compensation [@abbott_employment_2010; @steiner_crew_2018]. These attributes make it attractive to fishery regulators and policymakers because it promises to help reach those goals set forth in the Magnuson-Stevens Act.
+
+ITQ systems are a means to organize fishing efforts and prevent over-fishing [@eythorsson_theory_1996; @arnason_property_2012]. ITQs works by assigning individuals the right to fish for a certain stock [@arnason_property_2012; @eythorsson_theory_1996]. The definition of a stock is up to the managing body, but generally it is a certain species which has reached sexual maturity in its life cycle. This right to fish for a certain stock is known as a quota, and it acts as an upper bound to the amount of volume (measured in weight) of a stock that a fisherman can catch [@arnason_property_2012; @werner_economic_2022]. Fishermen are then allowed to either use their quota or transfer the rights to another fishermen [@arnason_property_2012; @werner_economic_2022].
+
+The particular ITQ system used by the NMGF creates an Annual Catch Limit (ACL) for 20 stocks of 13 species [@vasta_network_2019]. ACLs represents the maximum volume of a stock that can be fished across all fishermen in a year [@vasta_network_2019]. The NMGF gives portions of the ACLs, known as Annual Catch Entitlements (ACE), to self-organized fishermen groups known as sectors [@vasta_network_2019]. Sector managers further distribute ACEs to their sector constituents in whatever manner they deem appropriate [@vasta_network_2019]. The piece of an ACE that a fisherman receives is that fisherman's quota. The NMGF understands ACE and their distribution are imperfect and allows both inter-sector and intra-sector trading and leasing of these quota allocations, facilitated by sector managers, to promote self-regulation, efficiency, and correct distributional errors [@werner_economic_2022].
+
+Inter-sector trades are trades that occur between different sectors, while intra-sector trades are trades that occur within the same sectors [@lee_groundfish_2023]. However, there are additional barriers to completing inter-sector trades compared with intra-sector trades. Inter-sector trades require, among other things, that sector managers bargain on behalf of the fishermen from each respective sector [@werner_economic_2022]. This creates additional search and bargaining costs for the fishermen, which leads to higher transaction costs, and thus acts as a barrier to trade [@coase_nature_1937; @lee_groundfish_2023]. Previous economic literature suggests that this should lead to inefficiencies and non-optimal allocations of these quotas [@arnason_property_2012].
+
+Lee and Demarest (2023) have sought to test this claim by considering the determinants of NMGF quota prices. Their research finds that the quota market is largely working as economists would expect. For example, one of the findings of their models is that scarcity of quota matters. Lee and Demarest’s (2023) model predicts that abundant quotas are likely to trade at or near zero. However, this research did not consider the impact climate change has had on the quota market. There is a large amount of evidence documenting that climate change effects the managed groundfish populations by shifting species distributions [@hare_vulnerability_2016; @klein_effects_2017; @pershing_climate_2021; @nye_changing_2009]. Due to sectors often being organized based on rough geographic fishing location [@werner_economic_2022], species relocating would imply an increased reliance on the inter-sector quota trade and lease systems for efficient reallocation [@arnason_property_2012]. However, the previously highlighted transaction costs likely prevent efficient reallocation, and thus lead to higher quota prices.
+
+Building on Lee and Demarest's (2023) findings and methodology, I examined how climate change has impacted the NMGF quota market. To begin my analysis, I replicated Lee and Demarest's (2023) models using the same panel data on NMGF quota prices spanning from 2010 to 2019. Lee and Demarest (2023) used three different models: two were hurdle models (one a linear hurdle and the other an exponential hurdle) and one was an OLS model. All three replicated models lead to the same conclusions that Lee and Demarest (2023) arrived at in their research. Then, I introduced six climate change variables into all three models: maximum heatwave temperature recorded (measured at both the sea surface and the bottom surface), duration of the heatwave (measured at the sea surface and bottom surface), and the number days where the wind speed and wave height were large enough that it would be classified as a storm. However, I ran into multicollinearity issues in all models when including all six climate change variables; consequently, in my final climate change models I opted for only considering the sea surface heatwave maximum temperature, the sea surface heatwave duration, and the wave height observations. This led to a drastic reduction in multicollinearity across all models.
+
+In both my linear and exponential climate change hurdle models I found strong evidence that climate change was impacting the price of NMGF quota. I found that the maximum temperature reached at the sea surface during a heatwave was statistically significantly impacting the probability that a quota would trade for a positive price. That is, I found that as heatwave maxima became more extreme, there was a higher probability that a given quota would trade for a positive price. This makes intuitive economic sense when considering how previous literature outlines how heatwaves affect NMGF stocks. Heatwaves drive stocks into colder waters, which means stocks will either travel north or into deeper water [@klein_effects_2017; @nye_changing_2009]. In turn, this increases costs to finding and catching these fish which then gets incorporated into the quota prices. I also found that the duration of a heatwave at the sea surface was probably impacting the price of the quota. That is, I found that as the heatwave duration increased a given stock would trade for a proportionally higher price. This finding also makes sense using similar logic as before. The longer that species moves to escape the heatwave, either farther north or into deeper waters, the harder it is for fishermen to catch the stocks. This translates to higher costs for the fishermen, and the quotas are accordingly adjusted by the market.
+
+In contrast to the conclusions of the hurdle models, I found almost no evidence in the OLS climate model that climate change was impacting quota prices. I did find that number of days that could be classified as a storm due to the wave height was statistically significantly impacting the quota prices; but that was the only climate change variable the OLS model was confident about. These mixed results mean that it is up to interpretation to discern what effects, if any, climate change has on the NMGF quota market. Regardless, climate change is not going away, nor will it stop affecting the NMGF's stocks [@pershing_climate_2021]. Therefore, the same policymakers and regulators who instituted the catch-share program are left with the difficult question of how to prepare the NMGF ITQ system for when, not if, the effects of climate change begin to show, to ensure that it does not collapse like other fisheries in the Gulf of Maine have in the past.
+
+# Literature Review {#sec-LitReview}
+
+Lee and Demarest (2023) published the most recent research examining the catch-share program used by the NMGF. In their research, Lee and Demarest (2023) conducted a two-staged analysis where they first estimated the price per pounds of stocks. Then, they estimated how various characteristics of the quota market (such as output price, quota availability, etc.) impacted the prices of traded quota. In their estimations, they considered all stocks manged by the NMGF from 2010 to 2019. From this research they hoped to understand the determinants of quotas prices and whether the quota market was "healthy" [@lee_groundfish_2023].
+
+For their first stage, Lee and Demarest (2023) used a linear hedonic model to determine the implied price per pound of quota. This method has been previously used for analyses in both the NMGF [@murphy_2015_2018] and fisheries in British Columbia [@holland_making_2013]. This price per pound of quota is then used as the dependent variable in their second stage, estimation of what affected the prices of traded quota. Lee and Demarest (2023) employed both an OLS regression and two variations of Cragg's (1971) hurdle model to determine which variables affected quota prices.
+
+Their OLS model considered live price, quota remaining, fraction of catch observed, distance and inverse distance lag of quota remaining, and the quarter of the fishing year. No non-linear terms were considered. Overall, the model fit the data poorly, with an $R^2$ value of just 0.273. Yet, most of the considered variables were statistically significant.
+
+When discussing their motivations for using a hurdle model, Lee and Demarest (2023) cite one of the quirks of the NMGF catch-share program - fishermen in the NMGF often barter quotas. That is, they exchange the quota of a stock, say Gulf of Maine Cod (Gadus Morhua), for another stock, say Gulf of Maine Yellowtail Founder (Limanda Ferruginea), which means that the fishermen in this interaction simultaneously act as buyers and sellers. In addition, during this barter it appears that the price of stocks is 0 because there is no monetary compensation for either stock. Furthermore, there are stocks which are legitimately traded for nothing in the market which makes distinguishing between these trades extra challenging [@lee_groundfish_2023]. Thankfully, Cragg's (1971) hurdle model lends itself to modeling these types of complex goods. Cragg's hurdle model is a two-part model first modeling the probability of participation and then modeling the outcome probability density. That is, Cragg's (1971) model begins by estimating the probability that a good will trade at all (participation), and then taking that the trade will occur as a given, the model estimates the price for which that good will trade (outcome). The participation component of the hurdle model examines the probability that the quota will trade at a non-zero value with a probit model. Then, the outcome component examines how factors affect fluctuations in observed, positive, quota prices [@lee_groundfish_2023]. The outcome component is restricted to quotas which have been estimated to have traded for positive values because it is assumed that if the quota traded for anything less than zero the quota holder would rather retain the quota rather than pay to trade it away [@lee_groundfish_2023].
+
+For the participation component, Lee and Demarest (2023) considered quota remaining, fraction of quota remaining, fraction of catch observed, and an indicator variable for quarter of the fishing year as explanatory variables. While for the outcome component, Lee and Demarest (2023) considered quota remaining, fraction of quota remaining, fraction of catch observed, indicator variable for quarter of the year, inverse distance and distance of weighted spatial lags of quota remaining as explanatory variables.
+
+Lee and Demarest (2023) used two variations of Cragg's (1971) hurdle model: a linear and an exponential. The participation component of both models is identical, however, the outcome component differs. In the linear hurdle model the outcome component uses a Gaussian distribution. That is, the linear model assumes the data on quota prices follows a Gaussian distribution and fits its predictions accordingly. While in the exponential hurdle model the outcome component uses a log-normal distribution. That is, the exponential model assumes the data on quota prices follows a log-normal distribution and fits its predictions accordingly.
+
+The linear and exponential hurdle models Lee and Demarest (2023) created fit the data similarly, which can be seen in @tbl-LeeDemHurdleGOF. Both hurdle models have an $R^2$ value of about 0.34, an AIC around 920, a BIC of about 990, and a Log-Likelihood around -445. Both found only the fraction of catch observed variable in the participation component to be statistically insignificant. In general, both hurdle models fit the data fairly poorly. Yet, from these hurdle models and the OLS model Lee and Demarest (2023) concluded that because some of the variables, such as quota remaining and live price, are statistically significant the quota market has mixed evidence for acting efficiently. And Lee and Demarest (2023) implicitly assume that an efficient market is a healthy one. However, a drawback to this research is that Lee and Demarest (2023) highlight how environmental changes can affect market dynamics (pg. 5) yet, they do not consider any climate change variables in their models. Likely, considering climate change variable can both improve the explanatory power of their models and create a more cohesive, robust, framework to explain the efficacy of the quota market.
+
+In fact, it is not a new idea that climate change may be impacting the NMGF stocks in negative ways. Klein et al. (2017) begins by noting that New England is being abnormally impacted by the environmental changes fueled from increased levels of concentration of carbon dioxide in the atmosphere [@klein_effects_2017; @pershing_slow_2015]. This phenomenon is more colloquially known as climate change, and marine ecosystems are not spared of its influence [@klein_effects_2017; @nye_changing_2009; @hare_vulnerability_2016]. Climate change affects these marine ecosystems in a variety of ways: by changing temperature and salinity [@salisbury_rapid_2018; @wallace_multi-decadal_2018], by changing levels of pH and dissolved oxygen in the ocean [@salisbury_rapid_2018; @siedlecki_projecting_2021], and by shifting ocean currents [@klein_effects_2017], just to name a few. These changes negatively impact the development, reproduction, and harvesting of managed stocks in the NMGF [@klein_effects_2017; @pershing_climate_2021; @pershing_slow_2015]. That is, climate change decreases the likelihood of stock's eggs, larvae, and juveniles from developing fully into adults [@klein_effects_2017]. Further, climate change decreases the rates of spawning and recruitment for stocks [@klein_effects_2017]. In turn, this leads to decreased levels of fully developed stocks year-over-year, on average [@klein_effects_2017].
+
+However, most fish do not sit (or rather swim) idly while their environment around them changes. Their adaptations are largely to seek ecosystems which replicate pre-climate change conditions [@klein_effects_2017]. For some fish this means looking for new ecosystems in northern waters, for others (since these stock are groundfish) this means looking for new ecosystems in deeper waters [@klein_effects_2017; @pershing_climate_2021]. In general, this means that the distribution of the stocks managed by the NMGF has shifted and will continue to shift in the foreseeable future. In turn, this means that fishermen will have a harder time finding where these stocks now reside. Consequently, economic theory predicts that this will lead to a combination of increased costs and decreased profits for each voyage, which will be incorporated into the market evaluation of quota and ultimately make them more expensive.
+
+Alternatively, using the logic Arnason (2012), this could lead to an increase reliance on trading as fishermen who are already fishing in those new ecosystems get the quotas from the fishermen who fish in the areas where the fish are leaving; thus achieving efficient reallocation of the quotas. Arnason (2012) discusses the importance of property rights for fisheries achieving economic efficiency. Specifically, he highlights the challenges faced in achieving perfect property rights in fisheries when compared to a variety of other systems that use natural resources, such as farming and logging. Arnason (2012) claims that there are four factors to judge a good's property rights: exclusivity, durability, security, and tradability (also called transferability). When one of these components are not "perfect," economic efficiency cannot be achieved [@arnason_property_2012]. This is a problem for fisheries because often by the nature of the good, and the systems used to regulate their use, "imperfect" property rights are implemented. Arnason (2012) notes that while a variety of systems have been used, the ITQ system seems to be the best system, both in theory and practice, at preserving the property rights for fishermen. It is obvious, then, that the effectiveness of fishery management systems in generating efficiency positively depends on their ability to create, maintain, and protect, fishermen's individual property rights [@arnason_property_2012]. Hence, externalities which act as barriers to the transferability of ITQ's, in any capacity, limit the economic efficiency of those ITQ's. Equivalently, this means that the quotas in the NMGF are non-optimally distributed because of the transaction costs acting as barriers to trade. Further, if climate change does lead to an increased reliance on trading to get the quota to where the fish are, this will lead to more inefficiencies as transaction costs compound between fishermen.
+
+# Economic Model {#sec-Model}
+
+The cornerstone of this research is Cragg's (1971) hurdle model. Lee and Demarest (2023) used both the linear and exponential versions of this model in their analysis of quota market efficiency. We can define both version of Cragg's (1971) hurdle model by first considering a probit analysis model where the probability that an event will occur at $t$, $p(E_t)$, is given by,
+
+$$
+p(E_t)=\int^{X'_t\beta}_{-\infty}(2\pi)^{-\frac{1}{2}}\exp\{-z^2/2\}dz.
+$$ {#eq-Probit}
+
+Where $X_t$ is a $K\times1$ vector of the values of the independent variable at observation $t$ and $\beta$ is a vector of coefficients [@cragg_statistical_1971]. Then, Cragg (1971) designates the cumulative unit normal as,
+
+$$
+C(z)=\int_{-\infty}^z(2\pi)^{-\frac{1}{2}}\exp\{-t^2/2\}dt.
+$$ {#eq-UnitNormal}
+
+Let $q_t$ be defined the desired acquisition of a commodity and let $y_t$ be defined as the actual acquisition of the same commodity, both at $t$. We can generate $q_t$ as,
+
+$$
+q_t=X'_t\gamma+\epsilon_t,
+$$ {#eq-LinearAcquisition}
+
+where $\gamma$ is a vector of coefficients and $\epsilon_t$ is independently and normally distributed, with mean zero and variance $\sigma^2$ [@cragg_statistical_1971]. In a perfect market, the following statements hold: if $q_t \le 0$ then $y_t=0$ and if $q_t > 0$ then $q_t=y_t$, which should make intuitive sense [@cragg_statistical_1971]. Simply put, these statements say that agents who do not want a good will not buy a good (if $q_t \le 0$ then $y_t=0$), and agents who do want a good will buy the amount of the good that they desire (if $q_t > 0$ then $q_t=y_t$). However, a principle motivator for this research is to examine how transaction costs impact fishermen's ability trade quota and the impact this has on quota prices. Transaction costs imply that there exists $q_t>0$ such that $y_t\neq q_t$ [@cragg_statistical_1971]. We can then express the probability that $y_t=0$ as,
+
+$$
+f(y_t=0|X_{1t},X_{2t})=C(-X'_{1t}\beta).
+$$ {#eq-AcquisitionZero}
+
+Where $X_{1t}$ and $X_{2t}$ are vectors of independent variables at observation $t$ (not necessarily distinct), and $\beta$ is a vector of coefficients [@cragg_statistical_1971]. Cragg (1971) neglects to note that the vector $X_{1t}$ is actually the vector of considered variables in the participation component of the hurdle model. Similarly, the vector $X_{2t}$ is the vector of considered variables in the outcome component of the hurdle model. Correspondingly, the density for values of $y_t$, which has been truncated to consider only positive values, is given by,
+
+$$
+f(y_t|X_{1t},X_{2t})=(2\pi)^{-\frac{1}{2}}\sigma^{-1}\exp\{-(y_t-X'_{2t}\gamma)^2\}/\sigma^2\} C(X'_{1t}\beta)/C(X'_{2t}\gamma/\sigma),
+$$ {#eq-LinearDensity}
+
+for $y_t>0$. In @eq-LinearDensity, $\gamma$ is defined to be a vector of coefficients corresponding to the vector $X_{2t}$ [@cragg_statistical_1971]. Thus, in the model's output, $\beta$ and $\gamma$ are the associated weights for the consider variables in $X_{1t}$ and $X_{2t}$, respectively. Thus, @eq-LinearAcquisition, @eq-AcquisitionZero, and @eq-LinearDensity outline Lee and Demarest's (2023) linear hurdle model.
+
+With some minor tweaks Cragg (1971) outlines Lee and Demarest's (2023) exponential model. To start, an exponential model assumes that,
+
+$$
+\log y_t=X'_{2t}\gamma+\epsilon_t.
+$$ {#eq-ExpAcquisition}
+
+Where $\epsilon_t$ is normally distributed, and $y_t$ is non-zero [@cragg_statistical_1971]. This still implies that @eq-AcquisitionZero holds. However, @eq-LinearDensity becomes,
+
+$$
+f(y_t|X_{1t},X_{2t})=(y_t)^{-1}(2\pi)^{-\frac{1}{2}}\sigma^{-1}\exp\{-(\log y_t-X'_{2t}\gamma)^2/2\sigma^2\} C(X'_{1t}\beta).
+$$ {#eq-ExpDensity}
+
+Thus, @eq-ExpAcquisition, @eq-AcquisitionZero, and @eq-ExpDensity outline Lee and Demarest's (2023) exponential hurdle model.
+
+# Empirical Strategy {#sec-Results}
+
+## Data {#sec-Data}
+
+There were two sources of data used in this analysis. The first source of data was directly from Lee and Demarest's (2023) research. They have kindly published all non-confidential data from their research onto GitHub for anyone to access. This means that they have published their estimates for the live price per pound of quota for all stocks from 2010-2019, and all of their data used in the second stage. In exploring their estimates for per pound price of quota, one can easily recognize the attraction of using Cragg's (1971) hurdle model; having models which can factor in, but not be overly influenced by, observations of data at 0 is important for this data set.
+
+Consider both @fig-QuotaPriceDist and @fig-QuotaLogPriceDist. Both of these figures vividly demonstrate the abundance of 0's in this data set. Using more normal econometric modeling techniques, such as an OLS, will likely not give a very accurate picture. Take, for example, @fig-QuotaPriceDist. An OLS model would be heavily influenced by the 0's and predict most quotas to trade at or near zero. In addition, and OLS model for @fig-QuotaPriceDist would likely never be able to predict a quota price of at least \$2. Yet, we see this as not uncommon occurrence in the data. Similarly, an OLS model would never be able to predict the extreme values of less than -\$2 on the log scale in @fig-QuotaLogPriceDist. These scenarios perfectly encapsulates the advantage of employing the hurdle models. Hurdle models separate their predictions of the 0's and the rest of the distributions so that they can both make better predictions and tease out what variables underline the different processes. As a note, in @fig-QuotaLogPriceDist, the 0's have been artificially added back into the data set. That is, the natural logarithm is taken of quota prices, which for the 0's becomes negative infinity. However, I changed those values from negative infinity back to 0 because it is impossible to demonstrate negative infinity on a distribution graph, and the distribution which includes 0's with the log values is exactly what the exponential hurdle model is trying to calculate.
+
+The other source of data is known as the State of the Ecosystem; it is a database published and maintained by the National Oceanic and Atmospheric Administration (NOAA), and it has a variety of environmental panel data sets. This database was accessed through the "ecodata" R package, which makes interfacing with the database much easier. Specifically, from the ecodata package, I used the "bottom_temp," "sst," "heatwave," and "storms" data sets. The "heatwave," "bottom_temp," and "sst" data sets describe the temperature of the Gulf of Maine (GOM) and surrounding marine regions during heatwaves year-over-year. While, the "storms" data set records the wind speeds and wave heights throughout the year to describe when storms have occurred in the GOM and surrounding marine regions. Stocks, which are identified in Lee and Demarest's (2023) data, belong to either the GOM or GB regions. Thus, while the heatwave and storm data is collected for a variety of different marine regions in the Northeast Continental Shelf, I only consider the data collected for the GOM and George's Bank (GB) because stocks managed by the NMGF, currently, only reside in those two regions.
+
+Exactly what climate change variables were considered, and why, is discussed in @sec-HurdleResults. However, to achieve a better sense of what the climate change data looks like, I explore the variables here. Therefore, consider one of the variables of interest which the maximum temperature reached during a heatwave, which is shown in the time series plot, @fig-ClimateTempAnomoly. In @fig-ClimateTempAnomoly the red points represent measurements at the sea surface. These measurements show the maximum temperature reached, above what would normally be expected during the heatwave, for heatwaves measure at the sea surface. Exact definitions and models used to determine this are available from NOAA. Also in @fig-ClimateTempAnomoly, the blue points represent measurements taken on the bottom surface (the ocean floor). They are defined the same as the red points except the heatwaves are on the bottom surface instead of the sea surface. For both the sea surface temperature (SST) and bottom surface temperature (BST) measurements, there are distinctions made between the locations the measurements were taken. Distinction between heatwaves in the GOM and GB are made by the shape of the scatter-plot point, which are either triangles or circles respectively, to represent each region. In addition, trend lines are also displayed for SST and BST measurements to help aid in following how the SST and BST maxima have fluctuated during the period considered. With the exception of 2019, @fig-ClimateTempAnomoly shows that the SST heatwave maxima have been greater than the BST temperature maxima.
+
+Another variable of interest is the duration of heatwaves in a year, which is show in @fig-ClimateHeatwaveDuration. For the GOM and GB regions, denoted by circles and triangles respectively as points in the scatter-plot, @fig-ClimateHeatwaveDuration shows the durations (measured in days) of heatwaves throughout the year. The blue points in @fig-ClimateHeatwaveDuration show heatwaves that occur at the bottom surface of the ocean; while the red points in @fig-ClimateHeatwaveDuration show heatwaves that occur at the sea surface. In addition, trend lines are provided to show how, over the period considered from 2010 to 2019, the numbers of days classified as heatwaves has fluctuated. Although it appears that the number of days classified as heatwaves have been decreasing recently (especially for the bottom surface), previous biological literature suggests that this is an anomaly in the trend for the GOM and GB regions [@pershing_slow_2015].
+
+Finally, the last climate change variables which were considered were the number of days classified as a storm due to a combination of wave height and wind speeds recorded. The time series plot for the period considered is shown in @fig-ClimateStormDays. Similar to both @fig-ClimateTempAnomoly and @fig-ClimateHeatwaveDuration, the triangles and circles represent the region of measurement, GOM and GB respectively, in @fig-ClimateStormDays. The orange points in @fig-ClimateStormDays represent days where the wind speeds reached levels such that a day was classified as a storm. The purple points in @fig-ClimateStormDays represent days where the wave heights reached levels such that the day was classified as a storm. Trend lines are included to show how we see an increased amount of storms over the period considered, regardless of measurement technique. From 2010 to 2019, one can easily see that there have been more days that are classified as storms due to the height of the waves than were classified as storms due to the speed of the winds.
+
+## Quota Price Determinants {#sec-QuotaPriceResults}
+
+### Hurdle {#sec-HurdleResults}
+
+To begin, I wished to replicate Lee and Demarest's (2023) findings. Replicating their findings ensures that any conclusions I draw from considering climate change comes from the data. Therefore, to replicate their hurdle model I defined $t$ to be a stock in a given fishing year. This means that the following vectors are defined in terms of $t$, which is to say that they are defined specific for a stock in a given year. Thus, I define the vector $X_{1t}$ to be,
+
+$$
+X_{1t}=\begin{bmatrix} QR & FQR & FCO & Q_1 & Q_2 & Q_3 & Q_4\end{bmatrix}.
+$$ {#eq-ReplicParticipationInput}
+
+Where $QR$ is the quota remaining, $FQR$ (calculated as $\frac{QR}{ACE}$) is the percentage of $QR$ compared to the initial ACE allotment, $FCO$ is the amount of live pounds caught while under observation, and $Q_n$ is the $n$th quarter of the fishing year (for $n\in\{1,2,3,4\}$). Next, I defined the vector $X_{2t}$ to be,
+
+$$
+X_{2t}=\begin{bmatrix} LP & QR & FCO & DLQR & DLQR^{-1} & Q_1 & Q_2 & Q_3 & Q_4 \end{bmatrix}.
+$$ {#eq-ReplicOutcomeInput}
+
+Where $LP$ is the estimated live price of the stock, $DLQR$ is the distance lag of quota remaining, and $DLQR^{-1}$ is the inverse of the distance lag of quota remaining. To derive the linear hurdle model simply input $X_{1t}$ and $X_{2t}$ into @eq-AcquisitionZero and @eq-LinearDensity, respectively. To derive the exponential model simply input $X_{1t}$ and $X_{2t}$ into @eq-AcquisitionZero and @eq-ExpDensity, respectively. The estimation of these linear and exponential models can be viewed in @tbl-ReplicHurdle. Comparing @tbl-ReplicHurdle to Lee and Demarest's (2023) estimates, one can easily ascertain they are very similar but not exactly the same. The negligible differences in estimates is likely algorithmic and due to differences in modeling software. Lee and Demarest (2023) used STATA for their calculations while I used R. Regardless of these trivial differences, it is easy to see that using my models leads to the same conclusions as Lee and Demarest (2023). These conclusions are, in essence, that increases in quota remaining decrease the likelihood that quota will trade for a positive price, quota traded later in the year is less likely to trade for a higher price, increases in the live price of the fish suggests higher prices of quota, and increases in quota remaining are associated with decreases in quota prices [@lee_groundfish_2023]. From these data Lee and Demarest (2023) concluded that the market is working efficiently because these findings are what economists would expect to see in a market. However, as highlighted in both @sec-LitReview and @sec-Model, climate change has had, and continues to have, drastic impacts on managed stocks. Neglecting to include climate change variables in either of the models from @tbl-ReplicHurdle could lead to overstated levels of normalcy and efficiency in the quota market. Thus, using Lee and Demarest's (2023) replicated models I included climate change variables to examine how these variables impact the conclusions of market normalcy and efficiency.
+
+To begin these updated models, I considered several climate change outcomes. I considered how heatwaves impacted quota prices in a given fishing year. For these heatwaves I considered both their duration and the maximum temperature reached. Further, I segregated these heatwaves by whether the BST or the SST triggered the heatwave measurement. In addition, I also considered number of days in a given fishing year which were categorized as a storm by either their wave height or wind speeds. While the increased occurrence of all six of these variables represents climate change [@klein_effects_2017; @agel_climatology_2015; @huntington_climate_2016], they represent two different types of effects on the quota market. The heatwave duration and maximums for both SST and BST represent how climate change is affecting the managed stocks since (I assume) that fishermen do not alter their fishing efforts due to oceanic heatwaves. However, I do assume that the wind speed and wave height variables impact fishing effort. I assume that fish are not affected by either the wave height at the surface or the wind speeds above because they typically dwell close to the bottom of the ocean. Yet, the fishermen cannot go out and fish when wave height or wind speeds reach a certain threshold due to safety of crew and vessels. Therefore, the heatwave climate change variables represents shocks to the stocks, while the storm climate change variables represent shocks to fishing effort. I included all six of these climate change variables in both the participation and outcome portions of the hurdle models. This would mean that the vector $X_{1t}$ becomes,
+
+$$
+X_{1t}=\begin{bmatrix} QR & ... & Q_4 & HW_{BST,Max} & HW_{SST,Max} & HW_{BST,D} & HW_{SST,D} & H & S\end{bmatrix}.
+$$ {#eq-AllClimateParticipationInput}
+
+Where $HW_{BST,Max}$ is the maximum BST recorded during a heatwave, $HW_{SST,Max}$ is defined similarly for SST, $HW_{BST,D}$ is the duration of the heatwave recorded from the BST, $HW_{SST,D}$ is also defined but for SST, $H$ is the number of days which were classified as a storm due to wave height, and $S$ is the number of days classified as a storm due to wind speeds.
+
+Using the same definitions as in @eq-AllClimateParticipationInput, the vector $X_{2t}$ becomes,
+
+$$
+X_{2t}=\begin{bmatrix}LP & ... & Q_4 & HW_{BST,Max} & HW_{SST,Max} & HW_{BST,D} & HW_{SST,D} & H & S\end{bmatrix}.
+$$ {#eq-AllClimateOutcomeInput}
+
+Then, exactly similar to replicating Lee and Demarest's (2023) models, I plug in the updated $X_{1t}$ and $X_{2t}$ vectors into @eq-AcquisitionZero and @eq-LinearDensity for the linear model, and into @eq-AcquisitionZero and @eq-ExpDensity for the exponential model. The results of including these six climate change variables in both components of each model can be seen in @tbl-ClimateAllHurdle. In sum, I find that including all of the climate change variables does not demonstrate strong evidence that climate change is affecting the quota prices in either the participation or outcome components of the hurdle models. There are a few exceptions to this, such as the wind variable in the participation component, but largely these models find that climate change variables do not appear to affect quota prices. In addition, these models finds that Lee and Demarest's (2023) explanatory variables maintain their sign and statistical significance. Therefore, at first glance it may appear that these models has been created in vain. However, consider that BST and SST heatwave duration and maximum are likely highly correlated since a heatwave would cause all parts of the water-column to become warmer (@fig-ClimateTempAnomoly). It is also likely that both the wave height and wind speeds are highly correlated since they are both recorded as measurements of storms (@fig-ClimateStormDays). Thus, it is likely that these models suffers from some level of multicollinearity when including all these variables.
+
+To remedy this multicollinearity consider the updated $X_{1t}$ and $X_{2t}$ vectors which are defined as,
+
+$$
+X_{1t}=\begin{bmatrix} QR & ... & Q_4 & HW_{SST,Max} & HW_{SST,D} & H \end{bmatrix},
+$$ {#eq-SSTClimateParticipationInput}
+
+$$
+X_{2t}=\begin{bmatrix}LP & ... & Q_4 & HW_{SST,Max} & HW_{SST,D} & H \end{bmatrix}.
+$$ {#eq-SSTClimateOutcomeInput}
+
+Where $HW_{SST,Max}$, $HW_{SST,D}$, and $H$ are defined the same as in @eq-AllClimateParticipationInput and @eq-AllClimateOutcomeInput. Then input @eq-SSTClimateParticipationInput and @eq-SSTClimateOutcomeInput into @eq-AcquisitionZero and @eq-LinearDensity for the linear hurdle model, and into @eq-AcquisitionZero and @eq-ExpDensity for the exponential model. The output of these models can be seen in @tbl-ClimateSSTHurdle. These models in @tbl-ClimateSSTHurdle remove any multicollinearity present in @tbl-ClimateAllHurdle by removing one of each of the types of climate change variables.
+
+To the savvy reader it may seem strange to choose SST when the managed stocks are groundfish. That is, the managed stocks are known for staying near the bottom. It would appear to make more sense to consider BST instead. While it is true that the groundfish spend more of their time lower in water column, the data on BST is not as rich or precise as the SST data. SST has been recorded for longer in the "ecodata" database in addition it to being more spatially precise. By "spatially precise" I mean that there are no questions about where the temperature data was gathered with the SST data set. While with the BST temperature data it is often unclear what depth the bottom surface was. Because the depth the BST was recorded at is unclear this could lead to measurement error where heatwaves are not properly recorded. Thus, I chose to select a variable that was more sensitive to collecting heatwave data. In addition, I also selected wave height instead of wind speed. I assume that wave height would be a better indicator of whether the fishing vessels would embark since fishing vessels do not rely on wind for operation but they do rely on waves being within a reasonable height in order to operate their machinery; thus, wave height seemed to be a better proxy for fishing effort.
+
+Using the logic of Lee and Demarest (2023) the new hurdle models in @tbl-ClimateSSTHurdle say that climate change is a determinant of quota prices because both SST heatwave duration and temperature are statistically significant during both components of the hurdle models. For example, in the participation component of the models, heatwave maximum has a large magnitude and a high degree of statistical significance, while in the outcome component heatwave duration is the variable with a large magnitude and high degree of statistical significance. Thus, both models are describing that the higher the temperatures reached in a heatwave are associated an increase in the probability that a quota will trade for a positive price. Furthermore, the larger durations of heatwaves are associated with quotas being traded for higher prices. Moreover, we can say that climate change is not causing reduced fishing efforts which is demonstrated by wave height not being statistically significant in either of the components of the hurdle models. This helps provide some evidence to our hypothesis, which was that climate change is affecting fishermen's ability to find and catch fish, and barriers to trade prevent efficient reallocation, which results in higher quota prices. Were barriers to trade not present in the quota market, then we would expect for fishermen to trade away their quotas to those fishermen who are farther north or fishing in deeper waters where the fish are [@arnason_property_2012]. Instead, what we see in this model is that fishermen hold onto their quota and continue to fish at increased costs which then results in an increased price of the per pound price of quotas because trading the quotas has such high barriers to trade. This reluctance to trade appears in the form of the statistical significance of the SST climate change variables in both hurdle models.
+
+### OLS {#sec-OLSResults}
+
+Of course, while the hurdle models were the cornerstone of Lee and Demarest's (2023) analysis, they also consider an OLS model. In their OLS model, they used quota price, $QP$, as the dependent variable and all the explanatory variables from the outcome component (@eq-ReplicOutcomeInput) of the hurdle models as the independent variables in their regression. Thus, we can define their OLS model as,
+
+$$
+\begin{align*}
+QP = \alpha_0 &+ \alpha_1LP + \alpha_2QR + \alpha_3FCO + \alpha_5DLQR + \alpha_6DLQR^{-1} \\&+ \alpha_7Q_1 + \alpha_8Q_2 + \alpha_9Q_3 + \alpha_{10}Q_4 + \varepsilon.
+\end{align*}
+$$ {#eq-ReplicOLS}
+
+Where $LP$, $QR$, $FCO$, $DLQR$, $DLQR^{-1}$, and $Q_n$ (for $n\in\{1,2,3,4\}$) are defined the same as they were in @eq-ReplicOutcomeInput, $\alpha_0$ is the intercept term, $\alpha_1,...,\alpha_{10}$ are the coefficients for each independent variable, and $\varepsilon$ is the error term. The output of this regression can be seen in @tbl-ReplicOLS. Similar to the replication of Lee and Demarest's (2023) hurdle models (@tbl-ReplicHurdle), my replication is almost identical - signs and statistical significant are almost always the same. However, I do find that the signs on the distance lag and inverse distance lag variables are flipped in my replication. While Lee and Demarest (2023) found that $\alpha_5$ is negative and $\alpha_6$ is positive, I find that $\alpha_5$ is positive and $\alpha_6$ is negative. Again the only methodological difference between my replication and Lee and Demarest's (2023) model is software; therefore, it is peculiar to find such a deviation. Regardless, Lee and Demarest (2023) do not spend much time discussing interpretation of $DLQR$ or $DLQR^{-1}$ from the OLS model in their research. Hence, I'll assume that such a difference does not impact the integrity of my replication model significantly. Lee and Demarest (2023) found that while the OLS model does a worse job at explaining variations in quota prices, it reinforces their conclusions that the market is acting as expected. Therefore, they included it as another piece of evidence in their research.
+
+As with their hurdle models, Lee and Demarest (2023) did not consider any climate change variables in their OLS model. Similar to their hurdle models, by not including any climate change variables in their OLS model Lee and Demarest (2023) may be overstating levels of normalcy and efficiency in the quota market. Thus, I included the climate change variables discussed in @sec-HurdleResults to their OLS model to see how it impacted their findings. Instead of performing two regressions, one with all six climate change factors considered (which probably suffers from multicollinearity), I elected to only consider the variables in @eq-SSTClimateOutcomeInput. That is, I only considered the climate change variables of $HW_{SST,Max}$, $HW_{SST,D}$, and $H$. Thus, we can define the new OLS regression as @eq-ReplicOLS but including climate change variables,
+
+$$
+QP = \alpha_0 + ... + \alpha_{10}Q_4 + \alpha_{11}HW_{SST, Max} + \alpha_{12}HW_{SST, D} + H + \varepsilon.
+$$ {#eq-SSTClimateOLS}
+
+Where $HW_{SST,Max}$, $HW_{SST,D}$, and $H$ are defined the same as they are in @eq-SSTClimateOutcomeInput, and $\varepsilon$ is the error term. The output for the model can be seen in @tbl-ClimateOLS.
+
+The output in @tbl-ClimateOLS is much more interesting than the output from climate change hurdle models (@tbl-ClimateSSTHurdle). It is immediately apparent in this model that our climate change variables do not have anywhere near the same statistical significance they had in @tbl-ClimateSSTHurdle. That is, both the variables $HW_{SST,Max}$ and $HW_{SST,D}$ are not statistically significant, which is the standard that Lee and Demarest (2023) and I have been using to determine whether our respective hypothesis hold any weight. However, our effort-related climate change variable $H$, which represents days where the wave heights could be classified as a storm, is statistically significant. Furthermore, this OLS model finds that Lee and Demarest's (2023) variables are still statistically significant. Therefore, this model, @tbl-ClimateOLS, is suggesting that climate change is not affecting the quota market; this stands starkly in contrast to the conclusions drawn from the hurdle models in @tbl-ClimateSSTHurdle.
+
+However, looking at the goodness of fit statistics for Lee and Demarest's (2023) original model, my replication (@tbl-ReplicOLS), and the climate change model (@tbl-ClimateOLS), one can see that these models do not describe the data very well. The $R^2$ for these models range from a minimum of 0.236 to a maximum of 0.273. The goodness of fit statistics for Lee and Demarest's (2023) original hurdle model, my replicate hurdle model (@tbl-ReplicHurdle), and my climate change hurdle model (@tbl-ClimateSSTHurdle), are all better than their respective OLS counterparts. That is, the estimated $R^2$ values are higher in the hurdle models than in the OLS models. Thus, it seems hasty to rush to the conclusion that the quota market is behaving efficiently. While there is evidence that it is acting as expected, in the hurdle models and in the OLS models, there is also evidence that climate change is also impacting the market. Given the mountain of evidence (discussed in @sec-LitReview) which says that climate change is heavily present in the Gulf of Maine and influencing its marine life [@pershing_slow_2015; @pershing_climate_2021] it is bizarre that these climate change variables are not having a larger impact.
+
+# Conclusion and Direction for Future Research {#sec-Conclusion}
+
+Lee and Demarest (2023) investigated whether the NMGF quota market was behaving efficiently and normally. Generally, they came to the conclusion that the NMGF was behaving normally, however they did not consider the impact that climate change has had on the quota market. Thus, I replicated Lee and Demarest's (2023) models and then included several climate change predictors in their models. I found mixed evidence that climate change is influencing the prices of quotas. While there was strong evidence in the hurdle models (@tbl-ClimateSSTHurdle), there was virtually no evidence in the OLS model (@tbl-ClimateOLS).
+
+The inclusion of climate change predictors in the hurdle models did not change the significance of the metrics used by Lee and Demarest (2023), however the significance of my climate change variables is suggestive that the market is not acting as normally or as efficiently as Lee and Demarest (2023) portrayed. The lack of statistical significance on my effort related climate change variable casts doubt on the likelihood that climate change is altering price changes through fishing effort. Hence, my models come to the conclusion that climate change is shifting stock populations which in turn is making it harder for fishermen to find these fish stocks. This conclusion is consistent with what we would expect to see given the heavy documentation of the effects of climate change on the stocks in the NMGF [@klein_effects_2017; @pershing_slow_2015]. Furthermore, the statistical significance of these stock shifting climate change variables is evidence that the quota market is not acting efficiently. The significance of these variables implies that something is preventing fishermen in the NMGF from trading their quotas. Otherwise, the fishermen would opt for trading the quota to those who have lower costs, which is well documented in fisheries economics literature [@arnason_property_2012].
+
+In contrast, the inclusion of climate change predictors in the OLS model was not statistically significant. That is, the OLS model found that climate change does not have an impact on quota prices in the NMGF. In addition, the inclusion of these climate change predictors did not change the significance of Lee and Demarest's (2023) metrics of normalcy and efficiency. While it is possible that this model is correct, it feels unlikely given the mountains of evidence which suggests that climate change is affecting the stocks [@pershing_slow_2015; @klein_effects_2017] and thus the quota market to some degree.
+
+If we are to accept the conclusions of the OLS model, then we are left with the same conclusions that Lee and Demarest (2023) came to. Which is that the quota market in the NMGF is acting normally, and somewhat efficiently. However, if we accept the conclusions of the hurdle models, then we are left with the impression that the quota market is not acting efficiently. Then, one of the most obvious culprits of this inefficiency is the barriers to trade created by the sector management system. That is, the requirement to use sector managers to facilitate and complete inter-sector trades. It is well documented that in order for markets to work well they must have many buyers and sellers, perfect information, no barriers to trade, no economies of scale, and minimal transaction costs [@lee_groundfish_2023]. Yet, under the sector management system many of these requirements are violated. For example, there is not perfect information about quota prices since intra-sector trades are not reported. Furthermore, agents willing to trade quota, and at what quantity and price, are only known by their respective sector manager - creating further asymmetric information between potential buyers and sellers. In addition, having to go through sector managers creates transaction costs since it fabricates extra steps beyond the trading parties simply trading. Thus, it feels natural and logical to consider using other market trading structures which are shown to remove such inefficiencies. However, this consideration is left to the stakeholders in the NMGF, such as the fishermen and NOAA, since it is their livelihoods that this change would be impacting.
+
+Another, and arguably the most likely, reason for this discrepancy between the hurdle and OLS models is that quota markets are not a great place for testing market efficiency. There is literature which shows that even mature financial markets struggle to maintain efficient levels at all times [@fama_market_1998; @malkiel_efficient_2003]. This becomes exacerbated when considering immature quota markets [@pinkerton_elephant_2009], such as the NMGF quota market [@lee_groundfish_2023]. The lack of ability to discern efficiency in immature markets is likely the main driver of the discrepancy between my climate change models. Thus, it is possible that either of the conclusions drawn from my models are incorrect, and simply a fluke of the immature data.
+
+Consequently, since I cannot confidently conclude what impacts climate change is having on the NMGF quota market, there are many avenues left for further research. One such path would be examining the assumption that as climate change drives stocks to move, fishermen respond by trading away their quotas rather than continuing to fish at higher costs. Examining the drivers of quota trade, rather than quota price, would be useful in identifying areas where transaction costs are high. For example, if it is found that it is much more likely for fishermen to complete inter-sector trades between sectors with the same manager, then that would be evidence for the sector management system creating transaction costs, market inefficiencies, and preventing trade. Another avenue for further research could be considering other climate change variables. There are many other climate change variables, not considered in this research, which are impacting the Gulf of Maine and surrounding marine regions; these variables have no shortage of data available. For example, algae blooms [@record_rise_2021; @clark_projected_2022], increase ocean acidification [@siedlecki_projecting_2021; @salisbury_rapid_2018], and ocean increased salinity [@wallace_multi-decadal_2018; @salisbury_rapid_2018], are linked to climate change and have been documented impacting different stocks in the NMGF to varying degrees [@klein_effects_2017]. Exploration of these topics is likely to be the most fruitful, and help uncover the true impact of climate change on the NMGF quota market.
+
+# References {#sec-References}
+
+::: {#refs}
+:::
+
+```{r}
+#| message: false
+#| label: "Load Libraries"
+library(tidyverse)
+library(haven)
+library(modelsummary)
+library(mhurdle)
+library(scales)
+```
+
+```{r}
+#| label: "Load LD analyses"
+#Datasets needed should already be in current directory and can be directly accessed with this
+quarterly_fish_prices <- read_dta("quarterly_ols_coefs_from_R_2022_03_04.dta")
+Tspatial_lags <- read_dta("Tspatial_lags_2022_03_04.dta")
+```
+
+```{r}
+#Only select the variables of interest from each data set
+
+#Select variables from quarterly fish prices
+quarterly_fish_prices <-  quarterly_fish_prices %>% 
+  dplyr::select(fishing_year, q_fy, b, dateq, stockcode, stock_id, stock, nespp3, stockarea, spstock2, quota_remaining_BOQ, fraction_remaining_BOQ, proportion_observed, live_priceGDP)
+
+#Select variables of interest from spatial lags
+Tspatial_lags <-  Tspatial_lags %>% 
+  dplyr::select(fishing_year, dateq, stockcode, WTswt_quota_remaining_BOQ, WTDswt_quota_remaining_BOQ)
+```
+
+```{r}
+#Background: there were a different number of observations between the two data sets. The following code corrects for the observations present in "quarterly_fish_prices" which were not present in Tspatial_lags
+
+#Further select down for the variables that are shared between quarterly and Tspatial data sets
+
+#Want to get this to the 672 observations of "Tspatial_lags"
+quarterly_fish_prices <-  quarterly_fish_prices %>% 
+  #Helps get rid of some observations - Gets to 884 rows
+  dplyr::filter(stockcode != 1818 & stockcode != 9999) %>% 
+  #Gets down to 680 rows
+  dplyr::filter(fishing_year >= 2010 & fishing_year <= 2019)
+```
+
+```{r}
+replic <-  dplyr::right_join(Tspatial_lags, quarterly_fish_prices, by = c("fishing_year", "dateq", "stockcode")) %>% 
+  #This filters out the remaining non-overlapping parts of our dataset
+  dplyr::filter(!is.na(WTswt_quota_remaining_BOQ))
+```
+
+```{r}
+#Add in factor variable quarter - Technically is already present, but in the sake of laziness so I can preserve code of regressions I will keep this bit in here. It affects final result in no way, simply makes my life a little easier transfering data from "Cragg.qmd" to here
+
+replic <-  replic %>%
+  #Rearrange 'replic' so that we have each stock in chronological order
+  dplyr::arrange(stockcode) %>% 
+  #Add in a quarter variable
+  dplyr::mutate(quarter=rep(c("Q1","Q2","Q3","Q4"), times=168), .after = fishing_year) %>% 
+  #Make the quarter variable a factor variable so regression recognizes it as a dummy variable
+  dplyr::mutate(quarter = as.factor(quarter))
+```
+
+```{r}
+#Lee & D say on page 8 that any quota price that is either negative or NA was replaced with a 0 in their analysis. So, the following code does the same in my data set
+
+replic <- replic %>%
+  #Stage 1 is to make any negative values into 0's
+  dplyr::mutate(b = case_when(b < 0 ~ 0,
+                              b >=0 ~ b)) %>% 
+  #Stage 2 is to make any NA's into 0's
+  dplyr::mutate(b = replace_na(b, 0))
+```
+
+```{r}
+#| eval: false
+#| label: "Installing ecodata"
+
+#This cell is for those who don't have ecodata installed yet since it's trickier than the other packages - Simple delete the "eval: false" line to all an install and then put it back so you don't install it every time the code runs
+
+library(devtools)
+remotes::install_github("noaa-edab/ecodata", build_vignettes=TRUE)
+
+#Then just load it like any other library
+library(ecodata)
+```
+
+```{r}
+#| label: "Load ecodata"
+
+library(ecodata)
+
+#Below are the data sets of interest for this research
+
+#For bottom sea temperature
+#Data is only annually so need to fix
+bottom_temp <- ecodata::bottom_temp
+
+#Harmful algae blooms
+#Data is only annually so need to fix
+habs <- ecodata::habs
+
+#Heatwave data
+#Data is only annuall so need to fix
+heatwave <- ecodata::heatwave
+
+#Sea surface temerpature anomoly - not as great as bottom temp anomoly but still good
+sst <- ecodata::seasonal_oisst_anom
+
+#Storminess
+#Data is only annually so need to fix
+storms <- ecodata::storminess
+```
+
+```{r}
+#| message: false
+
+#This cell reformats the ecodata data sets into more usable formats
+
+#Widen the bottom_temp data set and resrtic for only observations we care about
+bottom_temp <- bottom_temp %>% 
+  #Restrict to only the time frame in question
+  filter(Time >= 2010 & Time <= 2019) %>% 
+  #Exclude MAB and SS
+  filter(EPU != "MAB" & EPU != "SS") %>% 
+  #Pivot the table wider - take observations from the same year and make them into columns instead of redundant rows to make mergering easier later
+  pivot_wider(names_from = Var, values_from = Value)
+
+habs <- habs %>% 
+  #Restrict area to only GOM in aggregate
+  filter(Var == "Gulf_of_Maine_All") %>% 
+  #Only include years we care about
+  filter(Time >= 2010 & Time <= 2019) %>% 
+  #Rename the Value to the variable it's observing
+  rename(Algae = Value) %>% 
+  #Select only the columns needed for merging
+  dplyr::select(!c(Source, Var))
+
+heatwave <- heatwave %>% 
+  #Restict area to George's Bank (GB) and Gulf of Maine (GOM)
+  filter(EPU == "GB" | EPU == "GOM") %>% 
+  #Restrict time frame to 2010-2019
+  filter(Time >= 2010 & Time <= 2019) %>% 
+  #Keep maximum intensity and duration of SS and BS heatwaves
+  filter(Var != "cumulative intensity-SurfaceDetrended" & Var != "cumulative intensity-BottomDetrended") %>% 
+  #Pivot this wider so that we only have 1 row for each observation in both GB and GOM
+  #Deselect Units because it fucks with the pivot wider function
+  dplyr::select(!Units) %>% 
+  pivot_wider(names_from = Var, values_from = Value)
+
+#SST is an anomoly measure, similar to the heatwave data set - Seems redundant due to the heatwave dataset. Heatwave seems much more complete and has more robust methods
+sst <- sst %>% 
+  #Select years 2010-2019
+  filter(Time >= 2010 & Time <= 2019) %>% 
+  #Recode the time series in terms of quarters instead of seasons to make merge easier later
+  mutate(q = case_when(Var == "Winter" ~ "Q1",
+                       Var == "Spring" ~ "Q2",
+                       Var == "Summer" ~ "Q3",
+                       Var == "Fall" ~ "Q4"),
+         .after = Var) %>% 
+  #Drop the Var colum since it's unnecessary
+  dplyr::select(!Var) %>% 
+  #Filter for only area of interest
+  filter(EPU != "MAB")
+
+#Probably need to come back and make this wider, but this works for now
+storms <- storms %>% 
+  #Select only years we care about
+  filter(Year >= 2010 & Year <= 2019) %>% 
+  #Consider only areas of interest
+  filter(EPU == "GOM" | EPU == "GB") %>% 
+  #Group by the year and general region to get a better sense of cumulative storms for this region
+  group_by(Year, Var) %>% 
+  summarize(mean_events = mean(Value),
+            untis = units,
+            EPU = EPU) %>% 
+  #This data represents days in the year that a "storm" was recorded from a wind and wave      perspective
+  #Make the data set tidy where each observation (year) is a row
+  pivot_wider(names_from = Var, values_from = mean_events) %>% 
+  #Take the average of the GOM observations and just use the GB for their respective rows
+  mutate(Gale_Wind = case_when(EPU == "GOM" ~ mean(c(`Eastern Gulf of Maine_GaleWind`, `Western Gulf of Maine_GaleWind`), na.rm = T),
+                               EPU == "GB" ~ `Georges Bank_GaleWind`), .after = EPU) %>% 
+  #Same process as above mutate but for WaveHeight instead
+  mutate(Wave_Height = case_when(EPU == "GOM" ~ mean(c(`Eastern Gulf of Maine_WaveHeight`, `Western Gulf of Maine_WaveHeight`), na.rm = T),
+                               EPU == "GB" ~ `Georges Bank_WaveHeight`), .after = Gale_Wind) %>% 
+  #Select only the columnds that matter for merging
+  dplyr::select(Year, EPU, Gale_Wind, Wave_Height) %>% 
+  #Rename the Year column to Time to make merge easier
+  rename(Time = Year)
+```
+
+```{r}
+#Rewrite the EPU's of replic to be less specified so we can merge data sets
+replic <- replic %>% 
+  mutate(EPU = case_when(stockarea == "CCGOM" ~ "GOM",
+                         stockarea == "GBE" ~ "GB",
+                         stockarea == "GBW" ~ "GB",
+                         stockarea == "GB" ~ "GB",
+                         stockarea == "GOM" ~ "GOM",
+                         #Maddy says that Plaice is normally caught in GB
+                         stockarea == "Unit" ~ "GB",
+                         #SNEMA is closer to GOM than GB so we count it as such
+                         stockarea == "SNEMA" ~ "GOM"), .after = stockcode)
+```
+
+```{r}
+#Join the heat related data sets together (heatwave and bottom_temp)
+temp1 <- bottom_temp %>%
+  #Join the heatwave and bottom temp data sets together
+  right_join(heatwave, by = join_by(Time, EPU)) %>%
+  #Select the columns that will be most helpful
+  dplyr::select(Time, EPU, `bottom temp anomaly in situ`, `sst anomaly in situ`, `duration-SurfaceDetrended`, `duration-BottomDetrended`) %>% 
+  #Join again with storms data
+  right_join(storms, by = join_by(Time, EPU)) %>% 
+  #Join again with algae bloom data - Don't have data on GB so might need to come back and alter that for regression
+  left_join(habs, by = join_by(Time, EPU)) %>% 
+  #Repeat each thing for 4 quarters
+  slice(rep(1:n(), each = 4)) %>% 
+  mutate(q = rep(c("Q1","Q2","Q3","Q4"), times=20), .after = Time) %>% 
+  #Rename q to quarter and turn into factor
+  rename(quarter = q) %>% 
+  mutate(quarter = as.factor(quarter))
+```
+
+```{r}
+#This chunk appears to join everything together correctly
+
+#Create the merged price and climate data set called "replic2"
+replic2 <- replic %>% 
+  right_join(temp1, join_by("fishing_year"=="Time", EPU, quarter))
+```
+
+```{r}
+#Add in the 90th percentile dummy variable for SST and BST
+
+replic2 <- replic2 %>% 
+  #Create the ifelse command to test if the observation makes the 90th percentile cutoff
+  mutate(SST90 = ifelse(`sst anomaly in situ` >= quantile(replic2$`sst anomaly in situ`, probs = .9), 1, 0),.after = `sst anomaly in situ`) %>% 
+  #Repeat but for BST
+  mutate(BST90 = ifelse(`bottom temp anomaly in situ` >= quantile(replic2$`bottom temp anomaly in situ`, probs = .9), 1, 0),.after = `bottom temp anomaly in situ`)
+```
+
+```{r}
+#Add in dummy variable for SSB getting revised after-the-fact because previous estimations were realized to be incorrect
+#Dummy "stock_adjustment": 0 = no adjustment for stock in given year, 1 = adjustment made to stock in given year
+
+replic3 <- replic2 %>% 
+  mutate(stock_adjustment = case_when(
+    #George's Bank Cod
+    stock_id == "CODGBE" & fishing_year == 2012 ~ 1,
+    stock_id == "CODGBW" & fishing_year == 2012 ~ 1,
+    stock_id == "CODGBE" & fishing_year == 2013 ~ 1,
+    stock_id == "CODGBW" & fishing_year == 2013 ~ 1,
+    
+    #Gulf of Maine Cod
+    stock_id == "CODGMSS" & fishing_year == 2019 ~ 1,
+    
+    #George's Bank Haddock
+    stock_id == "HADGBE" & fishing_year == 2015 ~ 1,
+    stock_id == "HADGBW" & fishing_year == 2015 ~ 1,
+    stock_id == "HADGBE" & fishing_year == 2017 ~ 1,
+    stock_id == "HADGBW" & fishing_year == 2017 ~ 1,
+    stock_id == "HADGBE" & fishing_year == 2019 ~ 1,
+    stock_id == "HADGBW" & fishing_year == 2019 ~ 1,
+    
+    #Gulf of Maine Haddock
+    stock_id == "HADGM" & fishing_year == 2019 ~ 1,
+    
+    #George's Bank Yellowtail Flounder
+    stock_id == "YELGB" & fishing_year == 2011 ~ 1,
+    stock_id == "YELGB" & fishing_year == 2012 ~ 1,
+    stock_id == "YELGB" & fishing_year == 2013 ~ 1,
+    
+    #Cape Cod and Gulf of Maine Yellowtail Flounder
+    stock_id == "YELCCGM" & fishing_year == 2012 ~ 1,
+    stock_id == "YELCCGM" & fishing_year == 2015 ~ 1,
+    stock_id == "YELCCGM" & fishing_year == 2017 ~ 1,
+    stock_id == "YELCCGM" & fishing_year == 2019 ~ 1,
+    
+    #George's Bank Winter Flounder
+    stock_id == "FLWGB" & fishing_year == 2015 ~ 1,
+    stock_id == "FLWGB" & fishing_year == 2017 ~ 1,
+    stock_id == "FLWGB" & fishing_year == 2019 ~ 1,
+    stock_id == "FLWGB" & fishing_year == 2020 ~ 1,
+    
+    #Witch Flounder
+    stock_id == "WITGMMA" & fishing_year == 2015 ~ 1,
+    
+    #American Plaice
+    stock_id == "PLAGMMA" & fishing_year == 2008 ~ 1,
+    stock_id == "PLAGMMA" & fishing_year == 2012 ~ 1,
+    stock_id == "PLAGMMA" & fishing_year == 2015 ~ 1,
+    stock_id == "PLAGMMA" & fishing_year == 2017 ~ 1,
+    stock_id == "PLAGMMA" & fishing_year == 2019 ~ 1,
+    
+    #Pollock
+    stock_id == "POKGMASS" & fishing_year == 2015 ~ 1,
+    stock_id == "POKGMASS" & fishing_year == 2017 ~ 1,
+    stock_id == "POKGMASS" & fishing_year == 2019 ~ 1,
+    
+    #White Hake
+    stock_id == "HKWGMMA" & fishing_year == 2017 ~ 1,
+    stock_id == "HKWGMMA" & fishing_year == 2019 ~ 1,
+    
+    #Set the default value of the column to 0 for all the stocks which didn't get SSB revised
+    .default = 0
+  ), .after = EPU)
+```
+
+# Tables {#sec-Tables}
+
+|                 |             |        |
+|-----------------|-------------|--------|
+| Goodness of Fit | Exponential | Linear |
+| R²              | 0.315       | 0.367  |
+| AIC             | 916         | 932    |
+| BIC             | 987         | 1008   |
+| Log Likelihood  | -442        | -449   |
+
+: Lee and Demarest (2023) Hurdle Model Goodness of Fit Statistics {#tbl-LeeDemHurdleGOF}
+
+```{r}
+#| warning: false
+
+#Create Lee and Demarest's (2023) linear and expoential models
+
+#This hurdle model is the linear one, which comes from the 'dist="n"' arguement
+hurdle.1a <- mhurdle(b ~ quota_remaining_BOQ + fraction_remaining_BOQ + proportion_observed + quarter | live_priceGDP + quota_remaining_BOQ + proportion_observed + WTswt_quota_remaining_BOQ + WTDswt_quota_remaining_BOQ + quarter, 
+                 data = replic,
+                 h2 = TRUE, dist = "n", method = "bhhh") 
+
+#This hurdle model is the expoential one, which comes from the 'dist="ln"' arguement
+hurdle.1b <- update(hurdle.1a, dist = "ln")
+```
+
+```{r}
+#| label: tbl-ReplicHurdle
+#| tbl-cap: "Lee and Demarest (2023) Hurdle Replication"
+
+#Display Lee and Demarest's (2023) hurdle models
+
+modelsummary(models = list("Exponential" = hurdle.1b, "Linear" = hurdle.1a),
+             #Set the stars to signify statistical significance level
+             stars = c('^' = 0.1, '*' = .05, '**' = .01, '***' = 0.001),
+             #Make the standard errors go away
+             statistic = NULL,
+             #Rename the coefficients to make the table presentable
+             coef_map = c(
+                             "h1.quota_remaining_BOQ" = "Quota Remaining [H1]",
+                             "h1.fraction_remaining_BOQ" = "Fraction Quota Remaining [H1]",
+                             "h1.proportion_observed" = "Fraction of Catch Observed [H1]",
+                             "h1.quarterQ2" = "Q2 [H1]",
+                             "h1.quarterQ3" = "Q3 [H1]",
+                             "h1.quarterQ4" = "Q4 [H1]",
+                             "h1.(Intercept)" = "Intercept [H1]",
+                             "h2.live_priceGDP" = "Live Price [H2]",
+                             "h2.quota_remaining_BOQ" = "Quota Remaining [H2]",
+                             "h2.fraction_remaining_BOQ" = "Fraction Quota Remaining [H2]",
+                             "h2.proportion_observed" = "Fraction of Catch Observed [H2]",
+                             "h2.WTswt_quota_remaining_BOQ" = "Distance Lag of Quota Remaining [H2]",
+                             "h2.WTDswt_quota_remaining_BOQ" = "Inverse Distance Lag of Quota Remaining [H2]",
+                             "h2.quarterQ2" = "Q2 [H2]",
+                             "h2.quarterQ3" = "Q3 [H2]",
+                             "h2.quarterQ4" = "Q4 [H2]",
+                             "h2.(Intercept)" = "Intercept [H2]"),
+             coef_omit = "sd.sd|pos",
+             gof_omit = "dpar",
+             gof_map = list(
+               list("raw" = "nobs", "clean" = "N", "fmt" = 0),
+               list("raw" = "nobs.zero", "clean" = "N [0]", "fmt" = 0),
+               list("raw" = "nobs.pos", "clean" = "N [Count]", "fmt" = 0),
+               #This funky "²" can be accessed through the emoji keyboard on mac with
+               #"control+command+space" and searching for super-script
+               list("raw" = "R2.zero", "clean" = "R² [0]", "fmt" = 3),
+               list("raw" = "R2.pos", "clean" = "R² [Count]", "fmt" = 3),
+               list("raw" = "logLik", "clean" = "Log Likelihood", "fmt" = 3)
+             ))
+```
+
+```{r}
+#| warning: false
+#Create the models which include climate change variables
+#Call the "churdles" for "climate hurdle"
+
+#This model is exponential non-correlated robust hurdle model
+churdle.4a <- mhurdle(b ~ quota_remaining_BOQ + fraction_remaining_BOQ + proportion_observed + quarter + `bottom temp anomaly in situ` + `sst anomaly in situ` + `duration-BottomDetrended` + `duration-SurfaceDetrended` + Wave_Height + Gale_Wind | live_priceGDP + quota_remaining_BOQ + proportion_observed + WTswt_quota_remaining_BOQ + WTDswt_quota_remaining_BOQ + quarter + `bottom temp anomaly in situ` + `sst anomaly in situ` + `duration-BottomDetrended` + `duration-SurfaceDetrended` + Wave_Height + Gale_Wind, 
+                 data = replic3,
+                 h2 = TRUE, dist = "ln", method = "bhhh")
+
+#This model creates a exponential correlated robust hurdle model
+churdle.5a <- mhurdle(b ~ quota_remaining_BOQ + fraction_remaining_BOQ + proportion_observed + quarter + `bottom temp anomaly in situ` + `sst anomaly in situ` + `duration-BottomDetrended` + `duration-SurfaceDetrended` + Wave_Height + Gale_Wind | live_priceGDP + quota_remaining_BOQ + proportion_observed + WTswt_quota_remaining_BOQ + WTDswt_quota_remaining_BOQ + quarter + `bottom temp anomaly in situ` + `sst anomaly in situ` + `duration-BottomDetrended` + `duration-SurfaceDetrended` + Wave_Height + Gale_Wind, data = replic3,
+                 h2 = FALSE, dist = "ln", corr = TRUE, method = "bhhh", finalHessian = TRUE)
+
+#This model updates churdle.5a to be non-robust
+churdle.5b <- update(churdle.5a, start = coef(churdle.5a), robust = FALSE)
+
+#This model updats churdle.5a to be linear
+churdle.5c <- update(churdle.5a, dist = "n")
+```
+
+```{r}
+#| label: tbl-ClimateAllHurdle
+#| tbl-cap: "All Climate Change Variables Hurdle Model"
+
+#This summarizes the models created in the previous cell
+
+modelsummary(models = list("Exponential Climate" = churdle.5a, "Linear Climate" = churdle.5c),
+             #Set the stars to correct significance level
+             stars = c('^' = 0.1, '*' = .05, '**' = .01, '***' = 0.001),
+             #Prevents standard error from being displayed since I think there's too much going on with it
+             statistic = NULL,
+             coef_rename = c("h1.quota_remaining_BOQ" = "Quota Remaining [H1]",
+                             "h1.fraction_remaining_BOQ" = "Fraction Quota Remaining [H1]",
+                             "h1.proportion_observed" = "Fraction of Catch Observed [H1]",
+                             "h1.quarterQ2" = "Q2 [H1]",
+                             "h1.quarterQ3" = "Q3 [H1]",
+                             "h1.quarterQ4" = "Q4 [H1]",
+                             "h1.`bottom temp anomaly in situ`" = "BST Heatwave Maximum [H1]",
+                             "h1.`sst anomaly in situ`" = "SST Heatwave Maximum [H1]",
+                             "h1.`duration-BottomDetrended`" = "BST Heatwave Duration [H1]",
+                             "h1.`duration-SurfaceDetrended`" = "SST Heatwave Duration [H1]",
+                             "h1.Wave_Height" = "Storm Days (Waves) [H1]",
+                             "h1.Gale_Wind" = "Storm Days (Wind) [H1]",
+                             "h1.(Intercept)" = "Intercept [H1]",
+                             "h2.live_priceGDP" = "Live Price [H2]",
+                             "h2.quota_remaining_BOQ" = "Quota Remaining [H2]",
+                             "h2.fraction_remaining_BOQ" = "Fraction Quota Remaining [H2]",
+                             "h2.proportion_observed" = "Fraction of Catch Observed [H2]",
+                             "h2.WTswt_quota_remaining_BOQ" = "Distance Lag of Quota Remaining [H2]",
+                             "h2.WTDswt_quota_remaining_BOQ" = "Inverse Distance Lag of Quota Remaining [H2]",
+                             "h2.quarterQ2" = "Q2 [H2]",
+                             "h2.quarterQ3" = "Q3 [H2]",
+                             "h2.quarterQ4" = "Q4 [H2]",
+                             "h2.`bottom temp anomaly in situ`" = "BST Heatwave Maximum [H2]",
+                             "h2.`duration-SurfaceDetrended`" = "SST Heatwave Duration [H2]",
+                             "h2.`sst anomaly in situ`" = "SST Heatwave Maximum [H2]",
+                             "h2.`duration-BottomDetrended`" = "BST Heatwave Duration [H2]",
+                             "h2.Wave_Height" = "Storm Days (Waves) [H2]",
+                             "h2.Gale_Wind" = "Storm Days (Wind) [H2]",
+                             "h2.(Intercept)" = "Intercept [H2]"),
+             coef_omit = "sd.sd|pos|corr12",
+             #gof_omit = "dpar",
+             gof_map = list(
+               list("raw" = "nobs", "clean" = "N", "fmt" = 0),
+               list("raw" = "nobs.zero", "clean" = "N [0]", "fmt" = 0),
+               list("raw" = "nobs.pos", "clean" = "N [Count]", "fmt" = 0),
+               #This funky "²" can be accessed through the emoji keyboard on mac with
+               #"control+command+space" and searching for super-script
+               list("raw" = "R2.zero", "clean" = "R² [0]", "fmt" = 3),
+               list("raw" = "R2.pos", "clean" = "R² [Count]", "fmt" = 3),
+               list("raw" = "logLik", "clean" = "Log Likelihood", "fmt" = 3)
+             ))
+```
+
+```{r}
+#| warning: false
+#Create the models which include climate change variables
+#Call the "churdles" for "climate hurdle"
+
+#This model is exponential non-correlated robust hurdle model
+churdle.21a <- mhurdle(b ~ quota_remaining_BOQ + fraction_remaining_BOQ + proportion_observed + quarter + `sst anomaly in situ` + `duration-SurfaceDetrended` + Wave_Height | live_priceGDP + quota_remaining_BOQ + proportion_observed + WTswt_quota_remaining_BOQ + WTDswt_quota_remaining_BOQ + quarter + `sst anomaly in situ` + `duration-SurfaceDetrended` + Wave_Height, 
+                 data = replic3,
+                 h2 = TRUE, dist = "ln", method = "bhhh")
+
+#This model creates a exponential correlated robust hurdle model
+churdle.22a <- mhurdle(b ~ quota_remaining_BOQ + fraction_remaining_BOQ + proportion_observed + quarter + `sst anomaly in situ` + `duration-SurfaceDetrended` + Wave_Height | live_priceGDP + quota_remaining_BOQ + proportion_observed + WTswt_quota_remaining_BOQ + WTDswt_quota_remaining_BOQ + quarter + `sst anomaly in situ` + `duration-SurfaceDetrended` + Wave_Height, data = replic3,
+                 h2 = FALSE, dist = "ln", corr = TRUE, method = "bhhh", finalHessian = TRUE)
+
+#This model updates churdle.5a to be non-robust
+churdle.22b <- update(churdle.22a, start = coef(churdle.22a), robust = FALSE)
+
+#This model updats churdle.5a to be linear
+churdle.22c <- update(churdle.22a, dist = "n")
+```
+
+```{r}
+#| label: tbl-ClimateSSTHurdle
+#| tbl-cap: "Climate Change SST Hurdle Model"
+
+#This summarizes the models created in the previous cell
+
+modelsummary(models = list("Exponential Climate SST" = churdle.22a, "Linear Climate SST" = churdle.22c),
+             #Set the stars to correct significance level
+             stars = c('^' = 0.1, '*' = .05, '**' = .01, '***' = 0.001),
+             #Prevents standard error from being displayed since I think there's too much going on with it
+             statistic = NULL,
+             coef_rename = c("h1.(Intercept)" = "Intercept [H1]",
+                             "h1.quota_remaining_BOQ" = "Quota Remaining [H1]",
+                             "h1.fraction_remaining_BOQ" = "Fraction Quota Remaining [H1]",
+                             "h1.proportion_observed" = "Fraction of Catch Observed [H1]",
+                             "h1.quarterQ2" = "Q2 [H1]",
+                             "h1.quarterQ3" = "Q3 [H1]",
+                             "h1.quarterQ4" = "Q4 [H1]",
+                             "h1.`sst anomaly in situ`" = "SST Heatwave Maximum [H1]",
+                             "h1.`duration-SurfaceDetrended`" = "SST Heatwave Duration [H1]",
+                             "h1.Wave_Height" = "Storm Days (Waves) [H1]",
+                             "h1.stock_adjustment" = "Stock Assessment Adjusted Post-Facto [H1]",
+                             "h2.(Intercept)" = "Intercept [H2]",
+                             "h2.live_priceGDP" = "Live Price [H2]",
+                             "h2.quota_remaining_BOQ" = "Quota Remaining [H2]",
+                             "h2.fraction_remaining_BOQ" = "Fraction Quota Remaining [H2]",
+                             "h2.proportion_observed" = "Fraction of Catch Observed [H2]",
+                             "h2.WTswt_quota_remaining_BOQ" = "Distance Lag of Quota Remaining [H2]",
+                             "h2.WTDswt_quota_remaining_BOQ" = "Inverse Distance Lag of Quota Remaining [H2]",
+                             "h2.quarterQ2" = "Q2 [H2]",
+                             "h2.quarterQ3" = "Q3 [H2]",
+                             "h2.quarterQ4" = "Q4 [H2]",
+                             "h2.`sst anomaly in situ`" = "SST Heatwave Maximum [H2]",
+                             "h2.`duration-SurfaceDetrended`" = "SST Heatwave Duration [H2]",
+                             "h2.Wave_Height" = "Storm Days (Waves) [H2]"),
+             coef_omit = "sd.sd|pos|corr12",
+             #gof_omit = "dpar",
+             gof_map = list(
+               list("raw" = "nobs", "clean" = "N", "fmt" = 0),
+               list("raw" = "nobs.zero", "clean" = "N [0]", "fmt" = 0),
+               list("raw" = "nobs.pos", "clean" = "N [Count]", "fmt" = 0),
+               #This funky "²" can be accessed through the emoji keyboard on mac with
+               #"control+command+space" and searching for super-script
+               list("raw" = "R2.zero", "clean" = "R² [0]", "fmt" = 3),
+               list("raw" = "R2.pos", "clean" = "R² [Count]", "fmt" = 3),
+               list("raw" = "logLik", "clean" = "Log Likelihood", "fmt" = 3)
+             ))
+```
+
+```{r}
+#Also important is the OLS regression
+
+OLS_replic <- lm(data = replic, b ~ live_priceGDP + quota_remaining_BOQ + proportion_observed + WTswt_quota_remaining_BOQ + WTDswt_quota_remaining_BOQ + quarter)
+```
+
+```{r}
+#| label: tbl-ReplicOLS
+#| tbl-cap: "Lee and Demarest (2023) OLS Replication"
+
+#Display the OLS replication
+modelsummary(models = list("OLS" = OLS_replic),
+             #Set the stars to signify statistical significance level
+             stars = c('^' = 0.1, '*' = .05, '**' = .01, '***' = 0.001),
+             #Remove the standard errors
+             statistic = NULL,
+             #Rename the coefficients to make the table presentable
+             coef_rename = c("(Intercept)" = "Intercept",
+                             "live_priceGDP" = "Live Price",
+                             "quota_remaining_BOQ" = "Quota Remaining",
+                             "proportion_observed" = "Fraction of Catch Observed",
+                             "WTswt_quota_remaining_BOQ" = "Distance Lag of Quota Remaining",
+                             "WTDswt_quota_remaining_BOQ" = "Inverse Distance Lag of Quota Remaining",
+                             "quarterQ2" = "Q2",
+                             "quarterQ3" = "Q3",
+                             "quarterQ4" = "Q4"),
+             gof_map = list(
+               list("raw" = "nobs", "clean" = "N", "fmt" = 0),
+               #This funky "²" can be accessed through the emoji keyboard on mac with
+               #"control+command+space" and searching for super-script
+               list("raw" = "r.squared", "clean" = "R²", "fmt" = 3),
+               list("raw" = "adj.r.squared", "clean" = "Adj. R²", "fmt" = 3),
+               list("raw" = "aic", "clean" = "AIC", "fmt" = 3),
+               list("raw" = "bic", "clean" = "BIC ", "fmt" = 3),
+               list("raw" = "logLik", "clean" = "Log Likelihood", "fmt" = 3)
+             ))
+```
+
+```{r}
+#OLS with Climate Change Variables Included
+OLS_Climate_Change <- lm(data = replic3, b ~ live_priceGDP + quota_remaining_BOQ + proportion_observed + WTswt_quota_remaining_BOQ + WTDswt_quota_remaining_BOQ + `sst anomaly in situ` + `duration-SurfaceDetrended` + Wave_Height + quarter) 
+```
+
+```{r}
+#| label: tbl-ClimateOLS
+#| tbl-cap: "Climate Change OLS"
+
+#Creates the output for the above model
+modelsummary(models = list("OLS" = OLS_Climate_Change),
+             #The "˙" character is from pressing "option+H"
+             stars = c('^' = 0.1, '*' = .05, '**' = .01, '***' = 0.001),
+             #Get rid of the standard errors in the output because it's too many numbers with these huge models
+             statistic = NULL,
+             #The renaming of the coefficients is crazy out of order. Just a heads up for when I come back to this
+             coef_rename = c("(Intercept)" = "Intercept",
+                             "live_priceGDP" = "Live Price",
+                             "quota_remaining_BOQ" = "Quota Remaining",
+                             "fraction_remaining_BOQ" = "Fraction Quota Remaining",
+                             "proportion_observed" = "Fraction of Catch Observed",
+                             "WTswt_quota_remaining_BOQ" = "Distance Lag of Quota Remaining",
+                             "WTDswt_quota_remaining_BOQ" = "Inverse Distance Lag of Quota Remaining",
+                             "quarterQ2" = "Q2",
+                             "quarterQ3" = "Q3",
+                             "quarterQ4" = "Q4",
+                             "sst anomaly in situ" = "SST Heatwave Maximum",
+                             "duration-SurfaceDetrended" = "SST Heatwave Duration",
+                             "Wave_Height" = "Storm Days (Waves)"),
+             coef_omit = "stock_id",
+             gof_map = list(
+               list("raw" = "nobs", "clean" = "N", "fmt" = 0),
+               list("raw" = "r.squared", "clean" = "R²", "fmt" = 3),
+               #This funky "²" can be accessed through the emoji keyboard on mac with
+               #"control+command+space" and searching for super-script
+               list("raw" = "adj.r.squared", "clean" = "Adj. R²", "fmt" = 3),
+               list("raw" = "aic", "clean" = "AIC", "fmt" = 3),
+               list("raw" = "bic", "clean" = "BIC ", "fmt" = 3),
+               list("raw" = "logLik", "clean" = "Log Likelihood", "fmt" = 3)
+             ))
+```
+
+```{r}
+#Transform the log quota prices to just map the 0's to 0's as the hurdle does
+replic3 <- replic3 %>% 
+  mutate(log_b = log(b), .after = b)  %>%
+  mutate(log_b = case_when(log_b == -Inf ~ 0,
+                           .default = log_b))
+```
+
+```{r}
+
+```
+
+# Figures {#sec-Figures}
+
+```{r}
+#| message: false
+#| label: fig-QuotaPriceDist
+#| fig-cap: "Distribution of Per Pound Price of NMGF Quota"
+#| fig-cap-location: margin
+
+ggplot(data = replic3)+
+  aes(x = b)+
+  geom_histogram()+
+  scale_x_continuous(labels = label_dollar())+
+  labs(title="Per Pound Price of NMGF Quota Concentrated Near 0",
+       x="Quota Price",
+       y="Number of Observations")
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| label: fig-QuotaLogPriceDist
+#| fig-cap: "Distribution of Log Per Pound Price of NMGF Quota"
+#| fig-cap-location: margin
+
+ggplot(data = replic3)+
+  aes(x = log_b)+
+  geom_histogram()+
+  scale_x_continuous(labels = label_dollar())+
+  labs(title="Per Pound Log Price of NMGF Quota Concentrated Near 0",
+       x="Quota Price (Natural Log Scale)",
+       y="Number of Observations")
+```
+
+```{r}
+#| label: fig-ClimateTempAnomoly
+#| fig-cap: "Maximum Heatwave Temperatures Reached"
+#| fig-cap-location: margin
+#| message: false
+#| warning: false
+
+#MULTIPLE OBSERVATIONS IN THE SAME YEAR IS BECAUSE OUR DATA IS RECORDED FOR GB AND GOM WHICH GENERATES TWO OBSERVATIONS - WE HAVE STOCKS FROM EACH AREA SO WE NEED TO KEEP THEM IN THE SCATTERPLOTS
+
+ggplot(data = replic3, aes(x=fishing_year))+
+  geom_point(aes(y=`bottom temp anomaly in situ`, shape=EPU), color="blue")+
+  geom_smooth(aes(y=`bottom temp anomaly in situ`, color="BST"), se=F)+
+  geom_point(aes(y=`sst anomaly in situ`, shape=EPU), color="red")+
+  geom_smooth(aes(y=`sst anomaly in situ`, color="SST"), se=F)+
+  scale_colour_manual(name="Trend", values=c("blue", "red"))+
+  scale_x_continuous(breaks = breaks_pretty(n = 5))+
+  labs(title="SST Heatwave Maximuma Trend Higher than BST Heatwave Maxima",
+       x = "Year",
+       y = "Heatwave Anomoly Temperature Recorded",
+       shape = "Region")
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| label: fig-ClimateHeatwaveDuration
+#| fig-cap: "Duration of Heatwaves measured at BST and SST"
+#| fig-cap-location: margin
+
+ggplot(data=replic3, aes(x=fishing_year))+
+  geom_point(aes(y=`duration-BottomDetrended`, shape=EPU), color="blue")+
+  geom_smooth(aes(y=`duration-BottomDetrended`, color="BST"), se=F)+
+  geom_point(aes(y=`duration-SurfaceDetrended`, shape=EPU), color="red")+
+  geom_smooth(aes(y=`duration-SurfaceDetrended`, color="SST"), se=F)+
+  scale_colour_manual(name="Trend", values=c("blue", "red"))+
+  scale_x_continuous(breaks = breaks_pretty(n = 5))+
+  labs(title="BST Heatwaves Last Longer Than SST Heatwaves",
+       x="Year",
+       y="Heatwave Duration (Days)",
+       shape="Region")
+```
+
+```{r}
+#| message: false
+#| warning: false
+#| label: fig-ClimateStormDays
+#| fig-cap: "Storm Days Classified by Wave Height and Wind Speed"
+#| fig-cap-location: margin
+
+ggplot(data=replic3, aes(x=fishing_year))+
+  geom_point(aes(y=Gale_Wind, shape=EPU), color="orange")+
+  geom_smooth(aes(y=Gale_Wind, color="Wind Speed"), se=F)+
+  geom_point(aes(y=Wave_Height, shape=EPU), color="purple")+
+  geom_smooth(aes(y=Wave_Height, color="Wave Height"), se=F)+
+  scale_color_manual(name = "Trend", values=c("purple", "orange"))+
+  scale_x_continuous(breaks = breaks_pretty(n=5))+
+  labs(title = "Greater Amount of Stormy Days From Wave Height Compared to Wind Speed",
+       x = "Year",
+       y = "Days Classified as Storms",
+       shape = "Region")
+```
+
+```{r}
+replic4 <- replic3 %>% 
+  mutate(EPU = case_when(EPU == "GOM" ~ "Gulf of Maine",
+                         EPU == "GB" ~ "George's Bank"))
+
+replic4
+```
+
+```{r}
+ggplot(data=replic4, aes(x=fishing_year))+
+  geom_point(aes(y=Gale_Wind, shape=EPU), color="orange")+
+  geom_smooth(aes(y=Gale_Wind, color="Wind Speed"), se=F)+
+  geom_point(aes(y=Wave_Height, shape=EPU), color="purple")+
+  geom_smooth(aes(y=Wave_Height, color="Wave Height"), se=F)+
+  scale_color_manual(name = "Trend", values=c("purple", "orange"))+
+  scale_x_continuous(breaks = breaks_pretty(n=5))+
+  labs(title = "Greater Amount of Stormy Days From Wave Height Compared to Wind Speed",
+       x = "Year",
+       y = "Days Classified as Storms",
+       shape = "Region")
+
+ggsave("ClimateStormDays2.png", dpi=400)
+```

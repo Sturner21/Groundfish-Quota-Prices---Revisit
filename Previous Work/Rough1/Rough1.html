@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sam Turner">
+
+<title>Fishy Business</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="Rough1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Rough1_files/libs/quarto-html/quarto.js"></script>
+<script src="Rough1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Rough1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Rough1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Rough1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Rough1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Rough1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Rough1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Rough1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="Rough1_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="Rough1_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-Introduction" id="toc-sec-Introduction" class="nav-link active" data-scroll-target="#sec-Introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#sec-LitReview" id="toc-sec-LitReview" class="nav-link" data-scroll-target="#sec-LitReview"><span class="header-section-number">2</span> Literature Review</a></li>
+  <li><a href="#sec-Model" id="toc-sec-Model" class="nav-link" data-scroll-target="#sec-Model"><span class="header-section-number">3</span> Economic Model</a></li>
+  <li><a href="#sec-Results" id="toc-sec-Results" class="nav-link" data-scroll-target="#sec-Results"><span class="header-section-number">4</span> Empirical Strategy</a>
+  <ul class="collapse">
+  <li><a href="#sec-Data" id="toc-sec-Data" class="nav-link" data-scroll-target="#sec-Data"><span class="header-section-number">4.1</span> Data</a></li>
+  <li><a href="#sec-QuotaPriceResults" id="toc-sec-QuotaPriceResults" class="nav-link" data-scroll-target="#sec-QuotaPriceResults"><span class="header-section-number">4.2</span> Quota Price Determinants</a>
+  <ul class="collapse">
+  <li><a href="#sec-HurdleResults" id="toc-sec-HurdleResults" class="nav-link" data-scroll-target="#sec-HurdleResults"><span class="header-section-number">4.2.1</span> Hurdle</a></li>
+  <li><a href="#sec-OLSResults" id="toc-sec-OLSResults" class="nav-link" data-scroll-target="#sec-OLSResults"><span class="header-section-number">4.2.2</span> OLS</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#sec-Conclusion" id="toc-sec-Conclusion" class="nav-link" data-scroll-target="#sec-Conclusion"><span class="header-section-number">5</span> Conclusion and Direction for Future Research</a></li>
+  <li><a href="#sec-References" id="toc-sec-References" class="nav-link" data-scroll-target="#sec-References"><span class="header-section-number">6</span> References</a></li>
+  <li><a href="#sec-Tables" id="toc-sec-Tables" class="nav-link" data-scroll-target="#sec-Tables"><span class="header-section-number">7</span> Tables</a></li>
+  <li><a href="#sec-Figures" id="toc-sec-Figures" class="nav-link" data-scroll-target="#sec-Figures"><span class="header-section-number">8</span> Figures</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Fishy Business</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sam Turner </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    The Northeast United States Multispecies Fishery (NMGF) implemented a catch-share program in 2010. This program, a modified Individual Transfer Quota (ITQ) system, uses self-organized fishermen groups known as sectors to allocate fishing quotas. However, there are transaction costs associated with inter-sector trades of these quotas, which act as barriers to trade and prevent efficient allocation. At the same time, climate change is causing NMGF stocks to relocate both farther north and into deeper waters to escape a variety of unfavorable environmental conditions. Utilizing panel data from 2010 to 2019, this study examines how climate change, in tandem with the aforementioned transaction costs, influenced NMGF quota market. This study expands on the econometric models used in previous literature to measure NMGF quota market efficacy. Results suggest that sea surface heatwaves impacted quota prices, reflecting increased fishing costs from stocks shifting. While hurdle models and an OLS model were employed, the hurdle models exhibited much stronger evidence of climate change affecting quota prices than the OLS model did. These mixed findings underline the econometric complexity of discerning market efficiency, especially for an immature market like the NMGF quota market. As climate change continues to affect stocks and transaction costs prevent efficient allocation, policymakers and regulators face the challenge of preparing the NMGF ITQ system to mitigate potential environmentally induced collapses, ensuring its resilience in the face of climate change.
+  </div>
+</div>
+
+</header>
+
+<section id="sec-Introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>To achieve the economic and biological goals outlined in the Magnuson-Stevens Act, the Northeast Multispecies Fishery (NMGF) implemented a catch-share program in 2010 <span class="citation" data-cites="werner_economic_2022">(<a href="#ref-werner_economic_2022" role="doc-biblioref">Werner, 2022</a>)</span>. This catch-share program is a modified Individual Transfer Quota (ITQ) system. As Lee and Demarest (2023) highlight, ITQ systems have been shown to have many positive attributes for fisheries such as increases to productivity <span class="citation" data-cites="fare_productivity_2015 walden_productivity_2012 weninger_assessing_1998">(<a href="#ref-fare_productivity_2015" role="doc-biblioref">Färe et al., 2015</a>; <a href="#ref-walden_productivity_2012" role="doc-biblioref">Walden et al., 2012</a>; <a href="#ref-weninger_assessing_1998" role="doc-biblioref">Weninger, 1998</a>)</span>, to revenue <span class="citation" data-cites="kroetz_evaluation_2017 scheld_economic_2012">(<a href="#ref-kroetz_evaluation_2017" role="doc-biblioref">Kroetz et al., 2017</a>; <a href="#ref-scheld_economic_2012" role="doc-biblioref">Scheld et al., 2012</a>)</span>, to profitability <span class="citation" data-cites="fox_property_2003">(<a href="#ref-fox_property_2003" role="doc-biblioref">Fox et al., 2003</a>)</span>, to output quality <span class="citation" data-cites="ardini_ifqs_2018 casey_effects_1995 kroetz_examination_2019">(<a href="#ref-ardini_ifqs_2018" role="doc-biblioref">Ardini &amp; Lee, 2018</a>; <a href="#ref-casey_effects_1995" role="doc-biblioref">Casey et al., 1995</a>; <a href="#ref-kroetz_examination_2019" role="doc-biblioref">Kroetz et al., 2019</a>)</span>, to prices <span class="citation" data-cites="dupont_profit_2005 pincinato_impact_2022">(<a href="#ref-dupont_profit_2005" role="doc-biblioref">Dupont et al., 2005</a>; <a href="#ref-pincinato_impact_2022" role="doc-biblioref">Pincinato et al., 2022</a>)</span>, to safety <span class="citation" data-cites="pfeiffer_effect_2016">(<a href="#ref-pfeiffer_effect_2016" role="doc-biblioref">Pfeiffer &amp; Gratz, 2016</a>)</span>, and to crew compensation <span class="citation" data-cites="abbott_employment_2010 steiner_crew_2018">(<a href="#ref-abbott_employment_2010" role="doc-biblioref">Abbott et al., 2010</a>; <a href="#ref-steiner_crew_2018" role="doc-biblioref">Steiner et al., 2018</a>)</span>. These attributes make it attractive to fishery regulators and policymakers because it promises to help reach those goals set forth in the Magnuson-Stevens Act.</p>
+<p>ITQ systems are a means to organize fishing efforts and prevent over-fishing <span class="citation" data-cites="eythorsson_theory_1996 arnason_property_2012">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>; <a href="#ref-eythorsson_theory_1996" role="doc-biblioref">Eythórsson, 1996</a>)</span>. ITQs works by assigning individuals the right to fish for a certain stock <span class="citation" data-cites="arnason_property_2012 eythorsson_theory_1996">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>; <a href="#ref-eythorsson_theory_1996" role="doc-biblioref">Eythórsson, 1996</a>)</span>. The definition of a stock is up to the managing body, but generally it is a certain species which has reached sexual maturity in its life cycle. This right to fish for a certain stock is known as a quota, and it acts as an upper bound to the amount of volume (measured in weight) of a stock that a fisherman can catch <span class="citation" data-cites="arnason_property_2012 werner_economic_2022">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>; <a href="#ref-werner_economic_2022" role="doc-biblioref">Werner, 2022</a>)</span>. Fishermen are then allowed to either use their quota or transfer the rights to another fishermen <span class="citation" data-cites="arnason_property_2012 werner_economic_2022">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>; <a href="#ref-werner_economic_2022" role="doc-biblioref">Werner, 2022</a>)</span>.</p>
+<p>The particular ITQ system used by the NMGF creates an Annual Catch Limit (ACL) for 20 stocks of 13 species <span class="citation" data-cites="vasta_network_2019">(<a href="#ref-vasta_network_2019" role="doc-biblioref">Vasta, 2019</a>)</span>. ACLs represents the maximum volume of a stock that can be fished across all fishermen in a year <span class="citation" data-cites="vasta_network_2019">(<a href="#ref-vasta_network_2019" role="doc-biblioref">Vasta, 2019</a>)</span>. The NMGF gives portions of the ACLs, known as Annual Catch Entitlements (ACE), to self-organized fishermen groups known as sectors <span class="citation" data-cites="vasta_network_2019">(<a href="#ref-vasta_network_2019" role="doc-biblioref">Vasta, 2019</a>)</span>. Sector managers further distribute ACEs to their sector constituents in whatever manner they deem appropriate <span class="citation" data-cites="vasta_network_2019">(<a href="#ref-vasta_network_2019" role="doc-biblioref">Vasta, 2019</a>)</span>. The piece of an ACE that a fisherman receives is that fisherman’s quota. The NMGF understands ACE and their distribution are imperfect and allows both inter-sector and intra-sector trading and leasing of these quota allocations, facilitated by sector managers, to promote self-regulation, efficiency, and correct distributional errors <span class="citation" data-cites="werner_economic_2022">(<a href="#ref-werner_economic_2022" role="doc-biblioref">Werner, 2022</a>)</span>.</p>
+<p>Inter-sector trades are trades that occur between different sectors, while intra-sector trades are trades that occur within the same sectors <span class="citation" data-cites="lee_groundfish_2023">(<a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>. However, there are additional barriers to completing inter-sector trades compared with intra-sector trades. Inter-sector trades require, among other things, that sector managers bargain on behalf of the fishermen from each respective sector <span class="citation" data-cites="werner_economic_2022">(<a href="#ref-werner_economic_2022" role="doc-biblioref">Werner, 2022</a>)</span>. This creates additional search and bargaining costs for the fishermen, which leads to higher transaction costs, and thus acts as a barrier to trade <span class="citation" data-cites="coase_nature_1937 lee_groundfish_2023">(<a href="#ref-coase_nature_1937" role="doc-biblioref">Coase, 1937</a>; <a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>. Previous economic literature suggests that this should lead to inefficiencies and non-optimal allocations of these quotas <span class="citation" data-cites="arnason_property_2012">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>)</span>.</p>
+<p>Lee and Demarest (2023) have sought to test this claim by considering the determinants of NMGF quota prices. Their research finds that the quota market is largely working as economists would expect. For example, one of the findings of their models is that scarcity of quota matters. Lee and Demarest’s (2023) model predicts that abundant quotas are likely to trade at or near zero. However, this research did not consider the impact climate change has had on the quota market. There is a large amount of evidence documenting that climate change effects the managed groundfish populations by shifting species distributions <span class="citation" data-cites="hare_vulnerability_2016 klein_effects_2017 pershing_climate_2021 nye_changing_2009">(<a href="#ref-hare_vulnerability_2016" role="doc-biblioref">Hare et al., 2016</a>; <a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>; <a href="#ref-nye_changing_2009" role="doc-biblioref">Nye et al., 2009</a>; <a href="#ref-pershing_climate_2021" role="doc-biblioref">Pershing et al., 2021</a>)</span>. Due to sectors often being organized based on rough geographic fishing location <span class="citation" data-cites="werner_economic_2022">(<a href="#ref-werner_economic_2022" role="doc-biblioref">Werner, 2022</a>)</span>, species relocating would imply an increased reliance on the inter-sector quota trade and lease systems for efficient reallocation <span class="citation" data-cites="arnason_property_2012">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>)</span>. However, the previously highlighted transaction costs likely prevent efficient reallocation, and thus lead to higher quota prices.</p>
+<p>Building on Lee and Demarest’s (2023) findings and methodology, I examined how climate change has impacted the NMGF quota market. To begin my analysis, I replicated Lee and Demarest’s (2023) models using the same panel data on NMGF quota prices spanning from 2010 to 2019. Lee and Demarest (2023) used three different models: two were hurdle models (one a linear hurdle and the other an exponential hurdle) and one was an OLS model. All three replicated models lead to the same conclusions that Lee and Demarest (2023) arrived at in their research. Then, I introduced six climate change variables into all three models: maximum heatwave temperature recorded (measured at both the sea surface and the bottom surface), duration of the heatwave (measured at the sea surface and bottom surface), and the number days where the wind speed and wave height were large enough that it would be classified as a storm. However, I ran into multicollinearity issues in all models when including all six climate change variables; consequently, in my final climate change models I opted for only considering the sea surface heatwave maximum temperature, the sea surface heatwave duration, and the wave height observations. This led to a drastic reduction in multicollinearity across all models.</p>
+<p>In both my linear and exponential climate change hurdle models I found strong evidence that climate change was impacting the price of NMGF quota. I found that the maximum temperature reached at the sea surface during a heatwave was statistically significantly impacting the probability that a quota would trade for a positive price. That is, I found that as heatwave maxima became more extreme, there was a higher probability that a given quota would trade for a positive price. This makes intuitive economic sense when considering how previous literature outlines how heatwaves affect NMGF stocks. Heatwaves drive stocks into colder waters, which means stocks will either travel north or into deeper water <span class="citation" data-cites="klein_effects_2017 nye_changing_2009">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>; <a href="#ref-nye_changing_2009" role="doc-biblioref">Nye et al., 2009</a>)</span>. In turn, this increases costs to finding and catching these fish which then gets incorporated into the quota prices. I also found that the duration of a heatwave at the sea surface was probably impacting the price of the quota. That is, I found that as the heatwave duration increased a given stock would trade for a proportionally higher price. This finding also makes sense using similar logic as before. The longer that species moves to escape the heatwave, either farther north or into deeper waters, the harder it is for fishermen to catch the stocks. This translates to higher costs for the fishermen, and the quotas are accordingly adjusted by the market.</p>
+<p>In contrast to the conclusions of the hurdle models, I found almost no evidence in the OLS climate model that climate change was impacting quota prices. I did find that number of days that could be classified as a storm due to the wave height was statistically significantly impacting the quota prices; but that was the only climate change variable the OLS model was confident about. These mixed results mean that it is up to interpretation to discern what effects, if any, climate change has on the NMGF quota market. Regardless, climate change is not going away, nor will it stop affecting the NMGF’s stocks <span class="citation" data-cites="pershing_climate_2021">(<a href="#ref-pershing_climate_2021" role="doc-biblioref">Pershing et al., 2021</a>)</span>. Therefore, the same policymakers and regulators who instituted the catch-share program are left with the difficult question of how to prepare the NMGF ITQ system for when, not if, the effects of climate change begin to show, to ensure that it does not collapse like other fisheries in the Gulf of Maine have in the past.</p>
+</section>
+<section id="sec-LitReview" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Literature Review</h1>
+<p>Lee and Demarest (2023) published the most recent research examining the catch-share program used by the NMGF. In their research, Lee and Demarest (2023) conducted a two-staged analysis where they first estimated the price per pounds of stocks. Then, they estimated how various characteristics of the quota market (such as output price, quota availability, etc.) impacted the prices of traded quota. In their estimations, they considered all stocks manged by the NMGF from 2010 to 2019. From this research they hoped to understand the determinants of quotas prices and whether the quota market was “healthy” <span class="citation" data-cites="lee_groundfish_2023">(<a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>.</p>
+<p>For their first stage, Lee and Demarest (2023) used a linear hedonic model to determine the implied price per pound of quota. This method has been previously used for analyses in both the NMGF <span class="citation" data-cites="murphy_2015_2018">(<a href="#ref-murphy_2015_2018" role="doc-biblioref">Murphy et al., 2018</a>)</span> and fisheries in British Columbia <span class="citation" data-cites="holland_making_2013">(<a href="#ref-holland_making_2013" role="doc-biblioref">Holland, 2013</a>)</span>. This price per pound of quota is then used as the dependent variable in their second stage, estimation of what affected the prices of traded quota. Lee and Demarest (2023) employed both an OLS regression and two variations of Cragg’s (1971) hurdle model to determine which variables affected quota prices.</p>
+<p>Their OLS model considered live price, quota remaining, fraction of catch observed, distance and inverse distance lag of quota remaining, and the quarter of the fishing year. No non-linear terms were considered. Overall, the model fit the data poorly, with an <span class="math inline">\(R^2\)</span> value of just 0.273. Yet, most of the considered variables were statistically significant.</p>
+<p>When discussing their motivations for using a hurdle model, Lee and Demarest (2023) cite one of the quirks of the NMGF catch-share program - fishermen in the NMGF often barter quotas. That is, they exchange the quota of a stock, say Gulf of Maine Cod (Gadus Morhua), for another stock, say Gulf of Maine Yellowtail Founder (Limanda Ferruginea), which means that the fishermen in this interaction simultaneously act as buyers and sellers. In addition, during this barter it appears that the price of stocks is 0 because there is no monetary compensation for either stock. Furthermore, there are stocks which are legitimately traded for nothing in the market which makes distinguishing between these trades extra challenging <span class="citation" data-cites="lee_groundfish_2023">(<a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>. Thankfully, Cragg’s (1971) hurdle model lends itself to modeling these types of complex goods. Cragg’s hurdle model is a two-part model first modeling the probability of participation and then modeling the outcome probability density. That is, Cragg’s (1971) model begins by estimating the probability that a good will trade at all (participation), and then taking that the trade will occur as a given, the model estimates the price for which that good will trade (outcome). The participation component of the hurdle model examines the probability that the quota will trade at a non-zero value with a probit model. Then, the outcome component examines how factors affect fluctuations in observed, positive, quota prices <span class="citation" data-cites="lee_groundfish_2023">(<a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>. The outcome component is restricted to quotas which have been estimated to have traded for positive values because it is assumed that if the quota traded for anything less than zero the quota holder would rather retain the quota rather than pay to trade it away <span class="citation" data-cites="lee_groundfish_2023">(<a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>.</p>
+<p>For the participation component, Lee and Demarest (2023) considered quota remaining, fraction of quota remaining, fraction of catch observed, and an indicator variable for quarter of the fishing year as explanatory variables. While for the outcome component, Lee and Demarest (2023) considered quota remaining, fraction of quota remaining, fraction of catch observed, indicator variable for quarter of the year, inverse distance and distance of weighted spatial lags of quota remaining as explanatory variables.</p>
+<p>Lee and Demarest (2023) used two variations of Cragg’s (1971) hurdle model: a linear and an exponential. The participation component of both models is identical, however, the outcome component differs. In the linear hurdle model the outcome component uses a Gaussian distribution. That is, the linear model assumes the data on quota prices follows a Gaussian distribution and fits its predictions accordingly. While in the exponential hurdle model the outcome component uses a log-normal distribution. That is, the exponential model assumes the data on quota prices follows a log-normal distribution and fits its predictions accordingly.</p>
+<p>The linear and exponential hurdle models Lee and Demarest (2023) created fit the data similarly, which can be seen in <a href="#tbl-LeeDemHurdleGOF">Table&nbsp;1</a>. Both hurdle models have an <span class="math inline">\(R^2\)</span> value of about 0.34, an AIC around 920, a BIC of about 990, and a Log-Likelihood around -445. Both found only the fraction of catch observed variable in the participation component to be statistically insignificant. In general, both hurdle models fit the data fairly poorly. Yet, from these hurdle models and the OLS model Lee and Demarest (2023) concluded that because some of the variables, such as quota remaining and live price, are statistically significant the quota market has mixed evidence for acting efficiently. And Lee and Demarest (2023) implicitly assume that an efficient market is a healthy one. However, a drawback to this research is that Lee and Demarest (2023) highlight how environmental changes can affect market dynamics (pg. 5) yet, they do not consider any climate change variables in their models. Likely, considering climate change variable can both improve the explanatory power of their models and create a more cohesive, robust, framework to explain the efficacy of the quota market.</p>
+<p>In fact, it is not a new idea that climate change may be impacting the NMGF stocks in negative ways. Klein et al.&nbsp;(2017) begins by noting that New England is being abnormally impacted by the environmental changes fueled from increased levels of concentration of carbon dioxide in the atmosphere <span class="citation" data-cites="klein_effects_2017 pershing_slow_2015">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>; <a href="#ref-pershing_slow_2015" role="doc-biblioref">Pershing et al., 2015</a>)</span>. This phenomenon is more colloquially known as climate change, and marine ecosystems are not spared of its influence <span class="citation" data-cites="klein_effects_2017 nye_changing_2009 hare_vulnerability_2016">(<a href="#ref-hare_vulnerability_2016" role="doc-biblioref">Hare et al., 2016</a>; <a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>; <a href="#ref-nye_changing_2009" role="doc-biblioref">Nye et al., 2009</a>)</span>. Climate change affects these marine ecosystems in a variety of ways: by changing temperature and salinity <span class="citation" data-cites="salisbury_rapid_2018 wallace_multi-decadal_2018">(<a href="#ref-salisbury_rapid_2018" role="doc-biblioref">Salisbury &amp; Jönsson, 2018</a>; <a href="#ref-wallace_multi-decadal_2018" role="doc-biblioref">Wallace et al., 2018</a>)</span>, by changing levels of pH and dissolved oxygen in the ocean <span class="citation" data-cites="salisbury_rapid_2018 siedlecki_projecting_2021">(<a href="#ref-salisbury_rapid_2018" role="doc-biblioref">Salisbury &amp; Jönsson, 2018</a>; <a href="#ref-siedlecki_projecting_2021" role="doc-biblioref">Siedlecki et al., 2021</a>)</span>, and by shifting ocean currents <span class="citation" data-cites="klein_effects_2017">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>)</span>, just to name a few. These changes negatively impact the development, reproduction, and harvesting of managed stocks in the NMGF <span class="citation" data-cites="klein_effects_2017 pershing_climate_2021 pershing_slow_2015">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>; <a href="#ref-pershing_slow_2015" role="doc-biblioref">Pershing et al., 2015</a>, <a href="#ref-pershing_climate_2021" role="doc-biblioref">2021</a>)</span>. That is, climate change decreases the likelihood of stock’s eggs, larvae, and juveniles from developing fully into adults <span class="citation" data-cites="klein_effects_2017">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>)</span>. Further, climate change decreases the rates of spawning and recruitment for stocks <span class="citation" data-cites="klein_effects_2017">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>)</span>. In turn, this leads to decreased levels of fully developed stocks year-over-year, on average <span class="citation" data-cites="klein_effects_2017">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>)</span>.</p>
+<p>However, most fish do not sit (or rather swim) idly while their environment around them changes. Their adaptations are largely to seek ecosystems which replicate pre-climate change conditions <span class="citation" data-cites="klein_effects_2017">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>)</span>. For some fish this means looking for new ecosystems in northern waters, for others (since these stock are groundfish) this means looking for new ecosystems in deeper waters <span class="citation" data-cites="klein_effects_2017 pershing_climate_2021">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>; <a href="#ref-pershing_climate_2021" role="doc-biblioref">Pershing et al., 2021</a>)</span>. In general, this means that the distribution of the stocks managed by the NMGF has shifted and will continue to shift in the foreseeable future. In turn, this means that fishermen will have a harder time finding where these stocks now reside. Consequently, economic theory predicts that this will lead to a combination of increased costs and decreased profits for each voyage, which will be incorporated into the market evaluation of quota and ultimately make them more expensive.</p>
+<p>Alternatively, using the logic Arnason (2012), this could lead to an increase reliance on trading as fishermen who are already fishing in those new ecosystems get the quotas from the fishermen who fish in the areas where the fish are leaving; thus achieving efficient reallocation of the quotas. Arnason (2012) discusses the importance of property rights for fisheries achieving economic efficiency. Specifically, he highlights the challenges faced in achieving perfect property rights in fisheries when compared to a variety of other systems that use natural resources, such as farming and logging. Arnason (2012) claims that there are four factors to judge a good’s property rights: exclusivity, durability, security, and tradability (also called transferability). When one of these components are not “perfect,” economic efficiency cannot be achieved <span class="citation" data-cites="arnason_property_2012">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>)</span>. This is a problem for fisheries because often by the nature of the good, and the systems used to regulate their use, “imperfect” property rights are implemented. Arnason (2012) notes that while a variety of systems have been used, the ITQ system seems to be the best system, both in theory and practice, at preserving the property rights for fishermen. It is obvious, then, that the effectiveness of fishery management systems in generating efficiency positively depends on their ability to create, maintain, and protect, fishermen’s individual property rights <span class="citation" data-cites="arnason_property_2012">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>)</span>. Hence, externalities which act as barriers to the transferability of ITQ’s, in any capacity, limit the economic efficiency of those ITQ’s. Equivalently, this means that the quotas in the NMGF are non-optimally distributed because of the transaction costs acting as barriers to trade. Further, if climate change does lead to an increased reliance on trading to get the quota to where the fish are, this will lead to more inefficiencies as transaction costs compound between fishermen.</p>
+</section>
+<section id="sec-Model" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Economic Model</h1>
+<p>The cornerstone of this research is Cragg’s (1971) hurdle model. Lee and Demarest (2023) used both the linear and exponential versions of this model in their analysis of quota market efficiency. We can define both version of Cragg’s (1971) hurdle model by first considering a probit analysis model where the probability that an event will occur at <span class="math inline">\(t\)</span>, <span class="math inline">\(p(E_t)\)</span>, is given by,</p>
+<p><span id="eq-Probit"><span class="math display">\[
+p(E_t)=\int^{X'_t\beta}_{-\infty}(2\pi)^{-\frac{1}{2}}\exp\{-z^2/2\}dz.
+\tag{1}\]</span></span></p>
+<p>Where <span class="math inline">\(X_t\)</span> is a <span class="math inline">\(K\times1\)</span> vector of the values of the independent variable at observation <span class="math inline">\(t\)</span> and <span class="math inline">\(\beta\)</span> is a vector of coefficients <span class="citation" data-cites="cragg_statistical_1971">(<a href="#ref-cragg_statistical_1971" role="doc-biblioref">Cragg, 1971</a>)</span>. Then, Cragg (1971) designates the cumulative unit normal as,</p>
+<p><span id="eq-UnitNormal"><span class="math display">\[
+C(z)=\int_{-\infty}^z(2\pi)^{-\frac{1}{2}}\exp\{-t^2/2\}dt.
+\tag{2}\]</span></span></p>
+<p>Let <span class="math inline">\(q_t\)</span> be defined the desired acquisition of a commodity and let <span class="math inline">\(y_t\)</span> be defined as the actual acquisition of the same commodity, both at <span class="math inline">\(t\)</span>. We can generate <span class="math inline">\(q_t\)</span> as,</p>
+<p><span id="eq-LinearAcquisition"><span class="math display">\[
+q_t=X'_t\gamma+\epsilon_t,
+\tag{3}\]</span></span></p>
+<p>where <span class="math inline">\(\gamma\)</span> is a vector of coefficients and <span class="math inline">\(\epsilon_t\)</span> is independently and normally distributed, with mean zero and variance <span class="math inline">\(\sigma^2\)</span> <span class="citation" data-cites="cragg_statistical_1971">(<a href="#ref-cragg_statistical_1971" role="doc-biblioref">Cragg, 1971</a>)</span>. In a perfect market, the following statements hold: if <span class="math inline">\(q_t \le 0\)</span> then <span class="math inline">\(y_t=0\)</span> and if <span class="math inline">\(q_t &gt; 0\)</span> then <span class="math inline">\(q_t=y_t\)</span>, which should make intuitive sense <span class="citation" data-cites="cragg_statistical_1971">(<a href="#ref-cragg_statistical_1971" role="doc-biblioref">Cragg, 1971</a>)</span>. Simply put, these statements say that agents who do not want a good will not buy a good (if <span class="math inline">\(q_t \le 0\)</span> then <span class="math inline">\(y_t=0\)</span>), and agents who do want a good will buy the amount of the good that they desire (if <span class="math inline">\(q_t &gt; 0\)</span> then <span class="math inline">\(q_t=y_t\)</span>). However, a principle motivator for this research is to examine how transaction costs impact fishermen’s ability trade quota and the impact this has on quota prices. Transaction costs imply that there exists <span class="math inline">\(q_t&gt;0\)</span> such that <span class="math inline">\(y_t\neq q_t\)</span> <span class="citation" data-cites="cragg_statistical_1971">(<a href="#ref-cragg_statistical_1971" role="doc-biblioref">Cragg, 1971</a>)</span>. We can then express the probability that <span class="math inline">\(y_t=0\)</span> as,</p>
+<p><span id="eq-AcquisitionZero"><span class="math display">\[
+f(y_t=0|X_{1t},X_{2t})=C(-X'_{1t}\beta).
+\tag{4}\]</span></span></p>
+<p>Where <span class="math inline">\(X_{1t}\)</span> and <span class="math inline">\(X_{2t}\)</span> are vectors of independent variables at observation <span class="math inline">\(t\)</span> (not necessarily distinct), and <span class="math inline">\(\beta\)</span> is a vector of coefficients <span class="citation" data-cites="cragg_statistical_1971">(<a href="#ref-cragg_statistical_1971" role="doc-biblioref">Cragg, 1971</a>)</span>. Cragg (1971) neglects to note that the vector <span class="math inline">\(X_{1t}\)</span> is actually the vector of considered variables in the participation component of the hurdle model. Similarly, the vector <span class="math inline">\(X_{2t}\)</span> is the vector of considered variables in the outcome component of the hurdle model. Correspondingly, the density for values of <span class="math inline">\(y_t\)</span>, which has been truncated to consider only positive values, is given by,</p>
+<p><span id="eq-LinearDensity"><span class="math display">\[
+f(y_t|X_{1t},X_{2t})=(2\pi)^{-\frac{1}{2}}\sigma^{-1}\exp\{-(y_t-X'_{2t}\gamma)^2\}/\sigma^2\} C(X'_{1t}\beta)/C(X'_{2t}\gamma/\sigma),
+\tag{5}\]</span></span></p>
+<p>for <span class="math inline">\(y_t&gt;0\)</span>. In <a href="#eq-LinearDensity">Equation&nbsp;5</a>, <span class="math inline">\(\gamma\)</span> is defined to be a vector of coefficients corresponding to the vector <span class="math inline">\(X_{2t}\)</span> <span class="citation" data-cites="cragg_statistical_1971">(<a href="#ref-cragg_statistical_1971" role="doc-biblioref">Cragg, 1971</a>)</span>. Thus, in the model’s output, <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> are the associated weights for the consider variables in <span class="math inline">\(X_{1t}\)</span> and <span class="math inline">\(X_{2t}\)</span>, respectively. Thus, <a href="#eq-LinearAcquisition">Equation&nbsp;3</a>, <a href="#eq-AcquisitionZero">Equation&nbsp;4</a>, and <a href="#eq-LinearDensity">Equation&nbsp;5</a> outline Lee and Demarest’s (2023) linear hurdle model.</p>
+<p>With some minor tweaks Cragg (1971) outlines Lee and Demarest’s (2023) exponential model. To start, an exponential model assumes that,</p>
+<p><span id="eq-ExpAcquisition"><span class="math display">\[
+\log y_t=X'_{2t}\gamma+\epsilon_t.
+\tag{6}\]</span></span></p>
+<p>Where <span class="math inline">\(\epsilon_t\)</span> is normally distributed, and <span class="math inline">\(y_t\)</span> is non-zero <span class="citation" data-cites="cragg_statistical_1971">(<a href="#ref-cragg_statistical_1971" role="doc-biblioref">Cragg, 1971</a>)</span>. This still implies that <a href="#eq-AcquisitionZero">Equation&nbsp;4</a> holds. However, <a href="#eq-LinearDensity">Equation&nbsp;5</a> becomes,</p>
+<p><span id="eq-ExpDensity"><span class="math display">\[
+f(y_t|X_{1t},X_{2t})=(y_t)^{-1}(2\pi)^{-\frac{1}{2}}\sigma^{-1}\exp\{-(\log y_t-X'_{2t}\gamma)^2/2\sigma^2\} C(X'_{1t}\beta).
+\tag{7}\]</span></span></p>
+<p>Thus, <a href="#eq-ExpAcquisition">Equation&nbsp;6</a>, <a href="#eq-AcquisitionZero">Equation&nbsp;4</a>, and <a href="#eq-ExpDensity">Equation&nbsp;7</a> outline Lee and Demarest’s (2023) exponential hurdle model.</p>
+</section>
+<section id="sec-Results" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Empirical Strategy</h1>
+<section id="sec-Data" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-Data"><span class="header-section-number">4.1</span> Data</h2>
+<p>There were two sources of data used in this analysis. The first source of data was directly from Lee and Demarest’s (2023) research. They have kindly published all non-confidential data from their research onto GitHub for anyone to access. This means that they have published their estimates for the live price per pound of quota for all stocks from 2010-2019, and all of their data used in the second stage. In exploring their estimates for per pound price of quota, one can easily recognize the attraction of using Cragg’s (1971) hurdle model; having models which can factor in, but not be overly influenced by, observations of data at 0 is important for this data set.</p>
+<p>Consider both <a href="#fig-QuotaPriceDist">Figure&nbsp;1</a> and <a href="#fig-QuotaLogPriceDist">Figure&nbsp;2</a>. Both of these figures vividly demonstrate the abundance of 0’s in this data set. Using more normal econometric modeling techniques, such as an OLS, will likely not give a very accurate picture. Take, for example, <a href="#fig-QuotaPriceDist">Figure&nbsp;1</a>. An OLS model would be heavily influenced by the 0’s and predict most quotas to trade at or near zero. In addition, and OLS model for <a href="#fig-QuotaPriceDist">Figure&nbsp;1</a> would likely never be able to predict a quota price of at least $2. Yet, we see this as not uncommon occurrence in the data. Similarly, an OLS model would never be able to predict the extreme values of less than -$2 on the log scale in <a href="#fig-QuotaLogPriceDist">Figure&nbsp;2</a>. These scenarios perfectly encapsulates the advantage of employing the hurdle models. Hurdle models separate their predictions of the 0’s and the rest of the distributions so that they can both make better predictions and tease out what variables underline the different processes. As a note, in <a href="#fig-QuotaLogPriceDist">Figure&nbsp;2</a>, the 0’s have been artificially added back into the data set. That is, the natural logarithm is taken of quota prices, which for the 0’s becomes negative infinity. However, I changed those values from negative infinity back to 0 because it is impossible to demonstrate negative infinity on a distribution graph, and the distribution which includes 0’s with the log values is exactly what the exponential hurdle model is trying to calculate.</p>
+<p>The other source of data is known as the State of the Ecosystem; it is a database published and maintained by the National Oceanic and Atmospheric Administration (NOAA), and it has a variety of environmental panel data sets. This database was accessed through the “ecodata” R package, which makes interfacing with the database much easier. Specifically, from the ecodata package, I used the “bottom_temp,” “sst,” “heatwave,” and “storms” data sets. The “heatwave,” “bottom_temp,” and “sst” data sets describe the temperature of the Gulf of Maine (GOM) and surrounding marine regions during heatwaves year-over-year. While, the “storms” data set records the wind speeds and wave heights throughout the year to describe when storms have occurred in the GOM and surrounding marine regions. Stocks, which are identified in Lee and Demarest’s (2023) data, belong to either the GOM or GB regions. Thus, while the heatwave and storm data is collected for a variety of different marine regions in the Northeast Continental Shelf, I only consider the data collected for the GOM and George’s Bank (GB) because stocks managed by the NMGF, currently, only reside in those two regions.</p>
+<p>Exactly what climate change variables were considered, and why, is discussed in <a href="#sec-HurdleResults">Section&nbsp;4.2.1</a>. However, to achieve a better sense of what the climate change data looks like, I explore the variables here. Therefore, consider one of the variables of interest which the maximum temperature reached during a heatwave, which is shown in the time series plot, <a href="#fig-ClimateTempAnomoly">Figure&nbsp;3</a>. In <a href="#fig-ClimateTempAnomoly">Figure&nbsp;3</a> the red points represent measurements at the sea surface. These measurements show the maximum temperature reached, above what would normally be expected during the heatwave, for heatwaves measure at the sea surface. Exact definitions and models used to determine this are available from NOAA. Also in <a href="#fig-ClimateTempAnomoly">Figure&nbsp;3</a>, the blue points represent measurements taken on the bottom surface (the ocean floor). They are defined the same as the red points except the heatwaves are on the bottom surface instead of the sea surface. For both the sea surface temperature (SST) and bottom surface temperature (BST) measurements, there are distinctions made between the locations the measurements were taken. Distinction between heatwaves in the GOM and GB are made by the shape of the scatter-plot point, which are either triangles or circles respectively, to represent each region. In addition, trend lines are also displayed for SST and BST measurements to help aid in following how the SST and BST maxima have fluctuated during the period considered. With the exception of 2019, <a href="#fig-ClimateTempAnomoly">Figure&nbsp;3</a> shows that the SST heatwave maxima have been greater than the BST temperature maxima.</p>
+<p>Another variable of interest is the duration of heatwaves in a year, which is show in <a href="#fig-ClimateHeatwaveDuration">Figure&nbsp;4</a>. For the GOM and GB regions, denoted by circles and triangles respectively as points in the scatter-plot, <a href="#fig-ClimateHeatwaveDuration">Figure&nbsp;4</a> shows the durations (measured in days) of heatwaves throughout the year. The blue points in <a href="#fig-ClimateHeatwaveDuration">Figure&nbsp;4</a> show heatwaves that occur at the bottom surface of the ocean; while the red points in <a href="#fig-ClimateHeatwaveDuration">Figure&nbsp;4</a> show heatwaves that occur at the sea surface. In addition, trend lines are provided to show how, over the period considered from 2010 to 2019, the numbers of days classified as heatwaves has fluctuated. Although it appears that the number of days classified as heatwaves have been decreasing recently (especially for the bottom surface), previous biological literature suggests that this is an anomaly in the trend for the GOM and GB regions <span class="citation" data-cites="pershing_slow_2015">(<a href="#ref-pershing_slow_2015" role="doc-biblioref">Pershing et al., 2015</a>)</span>.</p>
+<p>Finally, the last climate change variables which were considered were the number of days classified as a storm due to a combination of wave height and wind speeds recorded. The time series plot for the period considered is shown in <a href="#fig-ClimateStormDays">Figure&nbsp;5</a>. Similar to both <a href="#fig-ClimateTempAnomoly">Figure&nbsp;3</a> and <a href="#fig-ClimateHeatwaveDuration">Figure&nbsp;4</a>, the triangles and circles represent the region of measurement, GOM and GB respectively, in <a href="#fig-ClimateStormDays">Figure&nbsp;5</a>. The orange points in <a href="#fig-ClimateStormDays">Figure&nbsp;5</a> represent days where the wind speeds reached levels such that a day was classified as a storm. The purple points in <a href="#fig-ClimateStormDays">Figure&nbsp;5</a> represent days where the wave heights reached levels such that the day was classified as a storm. Trend lines are included to show how we see an increased amount of storms over the period considered, regardless of measurement technique. From 2010 to 2019, one can easily see that there have been more days that are classified as storms due to the height of the waves than were classified as storms due to the speed of the winds.</p>
+</section>
+<section id="sec-QuotaPriceResults" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-QuotaPriceResults"><span class="header-section-number">4.2</span> Quota Price Determinants</h2>
+<section id="sec-HurdleResults" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="sec-HurdleResults"><span class="header-section-number">4.2.1</span> Hurdle</h3>
+<p>To begin, I wished to replicate Lee and Demarest’s (2023) findings. Replicating their findings ensures that any conclusions I draw from considering climate change comes from the data. Therefore, to replicate their hurdle model I defined <span class="math inline">\(t\)</span> to be a stock in a given fishing year. This means that the following vectors are defined in terms of <span class="math inline">\(t\)</span>, which is to say that they are defined specific for a stock in a given year. Thus, I define the vector <span class="math inline">\(X_{1t}\)</span> to be,</p>
+<p><span id="eq-ReplicParticipationInput"><span class="math display">\[
+X_{1t}=\begin{bmatrix} QR &amp; FQR &amp; FCO &amp; Q_1 &amp; Q_2 &amp; Q_3 &amp; Q_4\end{bmatrix}.
+\tag{8}\]</span></span></p>
+<p>Where <span class="math inline">\(QR\)</span> is the quota remaining, <span class="math inline">\(FQR\)</span> (calculated as <span class="math inline">\(\frac{QR}{ACE}\)</span>) is the percentage of <span class="math inline">\(QR\)</span> compared to the initial ACE allotment, <span class="math inline">\(FCO\)</span> is the amount of live pounds caught while under observation, and <span class="math inline">\(Q_n\)</span> is the <span class="math inline">\(n\)</span>th quarter of the fishing year (for <span class="math inline">\(n\in\{1,2,3,4\}\)</span>). Next, I defined the vector <span class="math inline">\(X_{2t}\)</span> to be,</p>
+<p><span id="eq-ReplicOutcomeInput"><span class="math display">\[
+X_{2t}=\begin{bmatrix} LP &amp; QR &amp; FCO &amp; DLQR &amp; DLQR^{-1} &amp; Q_1 &amp; Q_2 &amp; Q_3 &amp; Q_4 \end{bmatrix}.
+\tag{9}\]</span></span></p>
+<p>Where <span class="math inline">\(LP\)</span> is the estimated live price of the stock, <span class="math inline">\(DLQR\)</span> is the distance lag of quota remaining, and <span class="math inline">\(DLQR^{-1}\)</span> is the inverse of the distance lag of quota remaining. To derive the linear hurdle model simply input <span class="math inline">\(X_{1t}\)</span> and <span class="math inline">\(X_{2t}\)</span> into <a href="#eq-AcquisitionZero">Equation&nbsp;4</a> and <a href="#eq-LinearDensity">Equation&nbsp;5</a>, respectively. To derive the exponential model simply input <span class="math inline">\(X_{1t}\)</span> and <span class="math inline">\(X_{2t}\)</span> into <a href="#eq-AcquisitionZero">Equation&nbsp;4</a> and <a href="#eq-ExpDensity">Equation&nbsp;7</a>, respectively. The estimation of these linear and exponential models can be viewed in <a href="#tbl-ReplicHurdle">Table&nbsp;2</a>. Comparing <a href="#tbl-ReplicHurdle">Table&nbsp;2</a> to Lee and Demarest’s (2023) estimates, one can easily ascertain they are very similar but not exactly the same. The negligible differences in estimates is likely algorithmic and due to differences in modeling software. Lee and Demarest (2023) used STATA for their calculations while I used R. Regardless of these trivial differences, it is easy to see that using my models leads to the same conclusions as Lee and Demarest (2023). These conclusions are, in essence, that increases in quota remaining decrease the likelihood that quota will trade for a positive price, quota traded later in the year is less likely to trade for a higher price, increases in the live price of the fish suggests higher prices of quota, and increases in quota remaining are associated with decreases in quota prices <span class="citation" data-cites="lee_groundfish_2023">(<a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>. From these data Lee and Demarest (2023) concluded that the market is working efficiently because these findings are what economists would expect to see in a market. However, as highlighted in both <a href="#sec-LitReview">Section&nbsp;2</a> and <a href="#sec-Model">Section&nbsp;3</a>, climate change has had, and continues to have, drastic impacts on managed stocks. Neglecting to include climate change variables in either of the models from <a href="#tbl-ReplicHurdle">Table&nbsp;2</a> could lead to overstated levels of normalcy and efficiency in the quota market. Thus, using Lee and Demarest’s (2023) replicated models I included climate change variables to examine how these variables impact the conclusions of market normalcy and efficiency.</p>
+<p>To begin these updated models, I considered several climate change outcomes. I considered how heatwaves impacted quota prices in a given fishing year. For these heatwaves I considered both their duration and the maximum temperature reached. Further, I segregated these heatwaves by whether the BST or the SST triggered the heatwave measurement. In addition, I also considered number of days in a given fishing year which were categorized as a storm by either their wave height or wind speeds. While the increased occurrence of all six of these variables represents climate change <span class="citation" data-cites="klein_effects_2017 agel_climatology_2015 huntington_climate_2016">(<a href="#ref-agel_climatology_2015" role="doc-biblioref">Agel et al., 2015</a>; <a href="#ref-huntington_climate_2016" role="doc-biblioref">Huntington et al., 2016</a>; <a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>)</span>, they represent two different types of effects on the quota market. The heatwave duration and maximums for both SST and BST represent how climate change is affecting the managed stocks since (I assume) that fishermen do not alter their fishing efforts due to oceanic heatwaves. However, I do assume that the wind speed and wave height variables impact fishing effort. I assume that fish are not affected by either the wave height at the surface or the wind speeds above because they typically dwell close to the bottom of the ocean. Yet, the fishermen cannot go out and fish when wave height or wind speeds reach a certain threshold due to safety of crew and vessels. Therefore, the heatwave climate change variables represents shocks to the stocks, while the storm climate change variables represent shocks to fishing effort. I included all six of these climate change variables in both the participation and outcome portions of the hurdle models. This would mean that the vector <span class="math inline">\(X_{1t}\)</span> becomes,</p>
+<p><span id="eq-AllClimateParticipationInput"><span class="math display">\[
+X_{1t}=\begin{bmatrix} QR &amp; ... &amp; Q_4 &amp; HW_{BST,Max} &amp; HW_{SST,Max} &amp; HW_{BST,D} &amp; HW_{SST,D} &amp; H &amp; S\end{bmatrix}.
+\tag{10}\]</span></span></p>
+<p>Where <span class="math inline">\(HW_{BST,Max}\)</span> is the maximum BST recorded during a heatwave, <span class="math inline">\(HW_{SST,Max}\)</span> is defined similarly for SST, <span class="math inline">\(HW_{BST,D}\)</span> is the duration of the heatwave recorded from the BST, <span class="math inline">\(HW_{SST,D}\)</span> is also defined but for SST, <span class="math inline">\(H\)</span> is the number of days which were classified as a storm due to wave height, and <span class="math inline">\(S\)</span> is the number of days classified as a storm due to wind speeds.</p>
+<p>Using the same definitions as in <a href="#eq-AllClimateParticipationInput">Equation&nbsp;10</a>, the vector <span class="math inline">\(X_{2t}\)</span> becomes,</p>
+<p><span id="eq-AllClimateOutcomeInput"><span class="math display">\[
+X_{2t}=\begin{bmatrix}LP &amp; ... &amp; Q_4 &amp; HW_{BST,Max} &amp; HW_{SST,Max} &amp; HW_{BST,D} &amp; HW_{SST,D} &amp; H &amp; S\end{bmatrix}.
+\tag{11}\]</span></span></p>
+<p>Then, exactly similar to replicating Lee and Demarest’s (2023) models, I plug in the updated <span class="math inline">\(X_{1t}\)</span> and <span class="math inline">\(X_{2t}\)</span> vectors into <a href="#eq-AcquisitionZero">Equation&nbsp;4</a> and <a href="#eq-LinearDensity">Equation&nbsp;5</a> for the linear model, and into <a href="#eq-AcquisitionZero">Equation&nbsp;4</a> and <a href="#eq-ExpDensity">Equation&nbsp;7</a> for the exponential model. The results of including these six climate change variables in both components of each model can be seen in <a href="#tbl-ClimateAllHurdle">Table&nbsp;3</a>. In sum, I find that including all of the climate change variables does not demonstrate strong evidence that climate change is affecting the quota prices in either the participation or outcome components of the hurdle models. There are a few exceptions to this, such as the wind variable in the participation component, but largely these models find that climate change variables do not appear to affect quota prices. In addition, these models finds that Lee and Demarest’s (2023) explanatory variables maintain their sign and statistical significance. Therefore, at first glance it may appear that these models has been created in vain. However, consider that BST and SST heatwave duration and maximum are likely highly correlated since a heatwave would cause all parts of the water-column to become warmer (<a href="#fig-ClimateTempAnomoly">Figure&nbsp;3</a>). It is also likely that both the wave height and wind speeds are highly correlated since they are both recorded as measurements of storms (<a href="#fig-ClimateStormDays">Figure&nbsp;5</a>). Thus, it is likely that these models suffers from some level of multicollinearity when including all these variables.</p>
+<p>To remedy this multicollinearity consider the updated <span class="math inline">\(X_{1t}\)</span> and <span class="math inline">\(X_{2t}\)</span> vectors which are defined as,</p>
+<p><span id="eq-SSTClimateParticipationInput"><span class="math display">\[
+X_{1t}=\begin{bmatrix} QR &amp; ... &amp; Q_4 &amp; HW_{SST,Max} &amp; HW_{SST,D} &amp; H \end{bmatrix},
+\tag{12}\]</span></span></p>
+<p><span id="eq-SSTClimateOutcomeInput"><span class="math display">\[
+X_{2t}=\begin{bmatrix}LP &amp; ... &amp; Q_4 &amp; HW_{SST,Max} &amp; HW_{SST,D} &amp; H \end{bmatrix}.
+\tag{13}\]</span></span></p>
+<p>Where <span class="math inline">\(HW_{SST,Max}\)</span>, <span class="math inline">\(HW_{SST,D}\)</span>, and <span class="math inline">\(H\)</span> are defined the same as in <a href="#eq-AllClimateParticipationInput">Equation&nbsp;10</a> and <a href="#eq-AllClimateOutcomeInput">Equation&nbsp;11</a>. Then input <a href="#eq-SSTClimateParticipationInput">Equation&nbsp;12</a> and <a href="#eq-SSTClimateOutcomeInput">Equation&nbsp;13</a> into <a href="#eq-AcquisitionZero">Equation&nbsp;4</a> and <a href="#eq-LinearDensity">Equation&nbsp;5</a> for the linear hurdle model, and into <a href="#eq-AcquisitionZero">Equation&nbsp;4</a> and <a href="#eq-ExpDensity">Equation&nbsp;7</a> for the exponential model. The output of these models can be seen in <a href="#tbl-ClimateSSTHurdle">Table&nbsp;4</a>. These models in <a href="#tbl-ClimateSSTHurdle">Table&nbsp;4</a> remove any multicollinearity present in <a href="#tbl-ClimateAllHurdle">Table&nbsp;3</a> by removing one of each of the types of climate change variables.</p>
+<p>To the savvy reader it may seem strange to choose SST when the managed stocks are groundfish. That is, the managed stocks are known for staying near the bottom. It would appear to make more sense to consider BST instead. While it is true that the groundfish spend more of their time lower in water column, the data on BST is not as rich or precise as the SST data. SST has been recorded for longer in the “ecodata” database in addition it to being more spatially precise. By “spatially precise” I mean that there are no questions about where the temperature data was gathered with the SST data set. While with the BST temperature data it is often unclear what depth the bottom surface was. Because the depth the BST was recorded at is unclear this could lead to measurement error where heatwaves are not properly recorded. Thus, I chose to select a variable that was more sensitive to collecting heatwave data. In addition, I also selected wave height instead of wind speed. I assume that wave height would be a better indicator of whether the fishing vessels would embark since fishing vessels do not rely on wind for operation but they do rely on waves being within a reasonable height in order to operate their machinery; thus, wave height seemed to be a better proxy for fishing effort.</p>
+<p>Using the logic of Lee and Demarest (2023) the new hurdle models in <a href="#tbl-ClimateSSTHurdle">Table&nbsp;4</a> say that climate change is a determinant of quota prices because both SST heatwave duration and temperature are statistically significant during both components of the hurdle models. For example, in the participation component of the models, heatwave maximum has a large magnitude and a high degree of statistical significance, while in the outcome component heatwave duration is the variable with a large magnitude and high degree of statistical significance. Thus, both models are describing that the higher the temperatures reached in a heatwave are associated an increase in the probability that a quota will trade for a positive price. Furthermore, the larger durations of heatwaves are associated with quotas being traded for higher prices. Moreover, we can say that climate change is not causing reduced fishing efforts which is demonstrated by wave height not being statistically significant in either of the components of the hurdle models. This helps provide some evidence to our hypothesis, which was that climate change is affecting fishermen’s ability to find and catch fish, and barriers to trade prevent efficient reallocation, which results in higher quota prices. Were barriers to trade not present in the quota market, then we would expect for fishermen to trade away their quotas to those fishermen who are farther north or fishing in deeper waters where the fish are <span class="citation" data-cites="arnason_property_2012">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>)</span>. Instead, what we see in this model is that fishermen hold onto their quota and continue to fish at increased costs which then results in an increased price of the per pound price of quotas because trading the quotas has such high barriers to trade. This reluctance to trade appears in the form of the statistical significance of the SST climate change variables in both hurdle models.</p>
+</section>
+<section id="sec-OLSResults" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="sec-OLSResults"><span class="header-section-number">4.2.2</span> OLS</h3>
+<p>Of course, while the hurdle models were the cornerstone of Lee and Demarest’s (2023) analysis, they also consider an OLS model. In their OLS model, they used quota price, <span class="math inline">\(QP\)</span>, as the dependent variable and all the explanatory variables from the outcome component (<a href="#eq-ReplicOutcomeInput">Equation&nbsp;9</a>) of the hurdle models as the independent variables in their regression. Thus, we can define their OLS model as,</p>
+<p><span id="eq-ReplicOLS"><span class="math display">\[
+\begin{align*}
+QP = \alpha_0 &amp;+ \alpha_1LP + \alpha_2QR + \alpha_3FCO + \alpha_5DLQR + \alpha_6DLQR^{-1} \\&amp;+ \alpha_7Q_1 + \alpha_8Q_2 + \alpha_9Q_3 + \alpha_{10}Q_4 + \varepsilon.
+\end{align*}
+\tag{14}\]</span></span></p>
+<p>Where <span class="math inline">\(LP\)</span>, <span class="math inline">\(QR\)</span>, <span class="math inline">\(FCO\)</span>, <span class="math inline">\(DLQR\)</span>, <span class="math inline">\(DLQR^{-1}\)</span>, and <span class="math inline">\(Q_n\)</span> (for <span class="math inline">\(n\in\{1,2,3,4\}\)</span>) are defined the same as they were in <a href="#eq-ReplicOutcomeInput">Equation&nbsp;9</a>, <span class="math inline">\(\alpha_0\)</span> is the intercept term, <span class="math inline">\(\alpha_1,...,\alpha_{10}\)</span> are the coefficients for each independent variable, and <span class="math inline">\(\varepsilon\)</span> is the error term. The output of this regression can be seen in <a href="#tbl-ReplicOLS">Table&nbsp;5</a>. Similar to the replication of Lee and Demarest’s (2023) hurdle models (<a href="#tbl-ReplicHurdle">Table&nbsp;2</a>), my replication is almost identical - signs and statistical significant are almost always the same. However, I do find that the signs on the distance lag and inverse distance lag variables are flipped in my replication. While Lee and Demarest (2023) found that <span class="math inline">\(\alpha_5\)</span> is negative and <span class="math inline">\(\alpha_6\)</span> is positive, I find that <span class="math inline">\(\alpha_5\)</span> is positive and <span class="math inline">\(\alpha_6\)</span> is negative. Again the only methodological difference between my replication and Lee and Demarest’s (2023) model is software; therefore, it is peculiar to find such a deviation. Regardless, Lee and Demarest (2023) do not spend much time discussing interpretation of <span class="math inline">\(DLQR\)</span> or <span class="math inline">\(DLQR^{-1}\)</span> from the OLS model in their research. Hence, I’ll assume that such a difference does not impact the integrity of my replication model significantly. Lee and Demarest (2023) found that while the OLS model does a worse job at explaining variations in quota prices, it reinforces their conclusions that the market is acting as expected. Therefore, they included it as another piece of evidence in their research.</p>
+<p>As with their hurdle models, Lee and Demarest (2023) did not consider any climate change variables in their OLS model. Similar to their hurdle models, by not including any climate change variables in their OLS model Lee and Demarest (2023) may be overstating levels of normalcy and efficiency in the quota market. Thus, I included the climate change variables discussed in <a href="#sec-HurdleResults">Section&nbsp;4.2.1</a> to their OLS model to see how it impacted their findings. Instead of performing two regressions, one with all six climate change factors considered (which probably suffers from multicollinearity), I elected to only consider the variables in <a href="#eq-SSTClimateOutcomeInput">Equation&nbsp;13</a>. That is, I only considered the climate change variables of <span class="math inline">\(HW_{SST,Max}\)</span>, <span class="math inline">\(HW_{SST,D}\)</span>, and <span class="math inline">\(H\)</span>. Thus, we can define the new OLS regression as <a href="#eq-ReplicOLS">Equation&nbsp;14</a> but including climate change variables,</p>
+<p><span id="eq-SSTClimateOLS"><span class="math display">\[
+QP = \alpha_0 + ... + \alpha_{10}Q_4 + \alpha_{11}HW_{SST, Max} + \alpha_{12}HW_{SST, D} + H + \varepsilon.
+\tag{15}\]</span></span></p>
+<p>Where <span class="math inline">\(HW_{SST,Max}\)</span>, <span class="math inline">\(HW_{SST,D}\)</span>, and <span class="math inline">\(H\)</span> are defined the same as they are in <a href="#eq-SSTClimateOutcomeInput">Equation&nbsp;13</a>, and <span class="math inline">\(\varepsilon\)</span> is the error term. The output for the model can be seen in <a href="#tbl-ClimateOLS">Table&nbsp;6</a>.</p>
+<p>The output in <a href="#tbl-ClimateOLS">Table&nbsp;6</a> is much more interesting than the output from climate change hurdle models (<a href="#tbl-ClimateSSTHurdle">Table&nbsp;4</a>). It is immediately apparent in this model that our climate change variables do not have anywhere near the same statistical significance they had in <a href="#tbl-ClimateSSTHurdle">Table&nbsp;4</a>. That is, both the variables <span class="math inline">\(HW_{SST,Max}\)</span> and <span class="math inline">\(HW_{SST,D}\)</span> are not statistically significant, which is the standard that Lee and Demarest (2023) and I have been using to determine whether our respective hypothesis hold any weight. However, our effort-related climate change variable <span class="math inline">\(H\)</span>, which represents days where the wave heights could be classified as a storm, is statistically significant. Furthermore, this OLS model finds that Lee and Demarest’s (2023) variables are still statistically significant. Therefore, this model, <a href="#tbl-ClimateOLS">Table&nbsp;6</a>, is suggesting that climate change is not affecting the quota market; this stands starkly in contrast to the conclusions drawn from the hurdle models in <a href="#tbl-ClimateSSTHurdle">Table&nbsp;4</a>.</p>
+<p>However, looking at the goodness of fit statistics for Lee and Demarest’s (2023) original model, my replication (<a href="#tbl-ReplicOLS">Table&nbsp;5</a>), and the climate change model (<a href="#tbl-ClimateOLS">Table&nbsp;6</a>), one can see that these models do not describe the data very well. The <span class="math inline">\(R^2\)</span> for these models range from a minimum of 0.236 to a maximum of 0.273. The goodness of fit statistics for Lee and Demarest’s (2023) original hurdle model, my replicate hurdle model (<a href="#tbl-ReplicHurdle">Table&nbsp;2</a>), and my climate change hurdle model (<a href="#tbl-ClimateSSTHurdle">Table&nbsp;4</a>), are all better than their respective OLS counterparts. That is, the estimated <span class="math inline">\(R^2\)</span> values are higher in the hurdle models than in the OLS models. Thus, it seems hasty to rush to the conclusion that the quota market is behaving efficiently. While there is evidence that it is acting as expected, in the hurdle models and in the OLS models, there is also evidence that climate change is also impacting the market. Given the mountain of evidence (discussed in <a href="#sec-LitReview">Section&nbsp;2</a>) which says that climate change is heavily present in the Gulf of Maine and influencing its marine life <span class="citation" data-cites="pershing_slow_2015 pershing_climate_2021">(<a href="#ref-pershing_slow_2015" role="doc-biblioref">Pershing et al., 2015</a>, <a href="#ref-pershing_climate_2021" role="doc-biblioref">2021</a>)</span> it is bizarre that these climate change variables are not having a larger impact.</p>
+</section>
+</section>
+</section>
+<section id="sec-Conclusion" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Conclusion and Direction for Future Research</h1>
+<p>Lee and Demarest (2023) investigated whether the NMGF quota market was behaving efficiently and normally. Generally, they came to the conclusion that the NMGF was behaving normally, however they did not consider the impact that climate change has had on the quota market. Thus, I replicated Lee and Demarest’s (2023) models and then included several climate change predictors in their models. I found mixed evidence that climate change is influencing the prices of quotas. While there was strong evidence in the hurdle models (<a href="#tbl-ClimateSSTHurdle">Table&nbsp;4</a>), there was virtually no evidence in the OLS model (<a href="#tbl-ClimateOLS">Table&nbsp;6</a>).</p>
+<p>The inclusion of climate change predictors in the hurdle models did not change the significance of the metrics used by Lee and Demarest (2023), however the significance of my climate change variables is suggestive that the market is not acting as normally or as efficiently as Lee and Demarest (2023) portrayed. The lack of statistical significance on my effort related climate change variable casts doubt on the likelihood that climate change is altering price changes through fishing effort. Hence, my models come to the conclusion that climate change is shifting stock populations which in turn is making it harder for fishermen to find these fish stocks. This conclusion is consistent with what we would expect to see given the heavy documentation of the effects of climate change on the stocks in the NMGF <span class="citation" data-cites="klein_effects_2017 pershing_slow_2015">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>; <a href="#ref-pershing_slow_2015" role="doc-biblioref">Pershing et al., 2015</a>)</span>. Furthermore, the statistical significance of these stock shifting climate change variables is evidence that the quota market is not acting efficiently. The significance of these variables implies that something is preventing fishermen in the NMGF from trading their quotas. Otherwise, the fishermen would opt for trading the quota to those who have lower costs, which is well documented in fisheries economics literature <span class="citation" data-cites="arnason_property_2012">(<a href="#ref-arnason_property_2012" role="doc-biblioref">Arnason, 2012</a>)</span>.</p>
+<p>In contrast, the inclusion of climate change predictors in the OLS model was not statistically significant. That is, the OLS model found that climate change does not have an impact on quota prices in the NMGF. In addition, the inclusion of these climate change predictors did not change the significance of Lee and Demarest’s (2023) metrics of normalcy and efficiency. While it is possible that this model is correct, it feels unlikely given the mountains of evidence which suggests that climate change is affecting the stocks <span class="citation" data-cites="pershing_slow_2015 klein_effects_2017">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>; <a href="#ref-pershing_slow_2015" role="doc-biblioref">Pershing et al., 2015</a>)</span> and thus the quota market to some degree.</p>
+<p>If we are to accept the conclusions of the OLS model, then we are left with the same conclusions that Lee and Demarest (2023) came to. Which is that the quota market in the NMGF is acting normally, and somewhat efficiently. However, if we accept the conclusions of the hurdle models, then we are left with the impression that the quota market is not acting efficiently. Then, one of the most obvious culprits of this inefficiency is the barriers to trade created by the sector management system. That is, the requirement to use sector managers to facilitate and complete inter-sector trades. It is well documented that in order for markets to work well they must have many buyers and sellers, perfect information, no barriers to trade, no economies of scale, and minimal transaction costs <span class="citation" data-cites="lee_groundfish_2023">(<a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>. Yet, under the sector management system many of these requirements are violated. For example, there is not perfect information about quota prices since intra-sector trades are not reported. Furthermore, agents willing to trade quota, and at what quantity and price, are only known by their respective sector manager - creating further asymmetric information between potential buyers and sellers. In addition, having to go through sector managers creates transaction costs since it fabricates extra steps beyond the trading parties simply trading. Thus, it feels natural and logical to consider using other market trading structures which are shown to remove such inefficiencies. However, this consideration is left to the stakeholders in the NMGF, such as the fishermen and NOAA, since it is their livelihoods that this change would be impacting.</p>
+<p>Another, and arguably the most likely, reason for this discrepancy between the hurdle and OLS models is that quota markets are not a great place for testing market efficiency. There is literature which shows that even mature financial markets struggle to maintain efficient levels at all times <span class="citation" data-cites="fama_market_1998 malkiel_efficient_2003">(<a href="#ref-fama_market_1998" role="doc-biblioref">Fama, 1998</a>; <a href="#ref-malkiel_efficient_2003" role="doc-biblioref">Malkiel, 2003</a>)</span>. This becomes exacerbated when considering immature quota markets <span class="citation" data-cites="pinkerton_elephant_2009">(<a href="#ref-pinkerton_elephant_2009" role="doc-biblioref">Pinkerton &amp; Edwards, 2009</a>)</span>, such as the NMGF quota market <span class="citation" data-cites="lee_groundfish_2023">(<a href="#ref-lee_groundfish_2023" role="doc-biblioref">Lee &amp; Demarest, 2023</a>)</span>. The lack of ability to discern efficiency in immature markets is likely the main driver of the discrepancy between my climate change models. Thus, it is possible that either of the conclusions drawn from my models are incorrect, and simply a fluke of the immature data.</p>
+<p>Consequently, since I cannot confidently conclude what impacts climate change is having on the NMGF quota market, there are many avenues left for further research. One such path would be examining the assumption that as climate change drives stocks to move, fishermen respond by trading away their quotas rather than continuing to fish at higher costs. Examining the drivers of quota trade, rather than quota price, would be useful in identifying areas where transaction costs are high. For example, if it is found that it is much more likely for fishermen to complete inter-sector trades between sectors with the same manager, then that would be evidence for the sector management system creating transaction costs, market inefficiencies, and preventing trade. Another avenue for further research could be considering other climate change variables. There are many other climate change variables, not considered in this research, which are impacting the Gulf of Maine and surrounding marine regions; these variables have no shortage of data available. For example, algae blooms <span class="citation" data-cites="record_rise_2021 clark_projected_2022">(<a href="#ref-clark_projected_2022" role="doc-biblioref">Clark et al., 2022</a>; <a href="#ref-record_rise_2021" role="doc-biblioref">Record et al., 2021</a>)</span>, increase ocean acidification <span class="citation" data-cites="siedlecki_projecting_2021 salisbury_rapid_2018">(<a href="#ref-salisbury_rapid_2018" role="doc-biblioref">Salisbury &amp; Jönsson, 2018</a>; <a href="#ref-siedlecki_projecting_2021" role="doc-biblioref">Siedlecki et al., 2021</a>)</span>, and ocean increased salinity <span class="citation" data-cites="wallace_multi-decadal_2018 salisbury_rapid_2018">(<a href="#ref-salisbury_rapid_2018" role="doc-biblioref">Salisbury &amp; Jönsson, 2018</a>; <a href="#ref-wallace_multi-decadal_2018" role="doc-biblioref">Wallace et al., 2018</a>)</span>, are linked to climate change and have been documented impacting different stocks in the NMGF to varying degrees <span class="citation" data-cites="klein_effects_2017">(<a href="#ref-klein_effects_2017" role="doc-biblioref">Klein et al., 2017</a>)</span>. Exploration of these topics is likely to be the most fruitful, and help uncover the true impact of climate change on the NMGF quota market.</p>
+</section>
+<section id="sec-References" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list">
+<div id="ref-abbott_employment_2010" class="csl-entry" role="listitem">
+Abbott, J. K., Garber-Yonts, B., &amp; Wilen, J. E. (2010). Employment and <span>Remuneration</span> <span>Effects</span> of <span>IFQs</span> in the <span>Bering</span> <span>Sea</span>/<span>Aleutian</span> <span>Islands</span> <span>Crab</span> <span>Fisheries</span>. <em>Marine Resource Economics</em>, <em>25</em>(4), 333–354. <a href="https://doi.org/10.5950/0738-1360-25.4.333">https://doi.org/10.5950/0738-1360-25.4.333</a>
+</div>
+<div id="ref-agel_climatology_2015" class="csl-entry" role="listitem">
+Agel, L., Barlow, M., Qian, J.-H., Colby, F., Douglas, E., &amp; Eichler, T. (2015). Climatology of <span>Daily</span> <span>Precipitation</span> and <span>Extreme</span> <span>Precipitation</span> <span>Events</span> in the <span>Northeast</span> <span>United</span> <span>States</span>. <em>Journal of Hydrometeorology</em>, <em>16</em>(6), 2537–2557. <a href="https://doi.org/10.1175/JHM-D-14-0147.1">https://doi.org/10.1175/JHM-D-14-0147.1</a>
+</div>
+<div id="ref-ardini_ifqs_2018" class="csl-entry" role="listitem">
+Ardini, G., &amp; Lee, M.-Y. (2018). Do <span>IFQs</span> in the <span>US</span> <span>Atlantic</span> <span>Sea</span> <span>Scallop</span> <span>Fishery</span> <span>Impact</span> <span>Price</span> and <span>Size</span>? <em>Marine Resource Economics</em>, <em>33</em>(3), 263–288. <a href="https://doi.org/10.1086/698199">https://doi.org/10.1086/698199</a>
+</div>
+<div id="ref-arnason_property_2012" class="csl-entry" role="listitem">
+Arnason, R. (2012). Property <span>Rights</span> in <span>Fisheries</span>: <span>How</span> <span>Much</span> <span>Can</span> <span>Individual</span> <span>Transferable</span> <span>Quotas</span> <span>Accomplish</span>? <em>Review of Environmental Economics and Policy</em>, <em>6</em>(2), 217–236. <a href="https://doi.org/10.1093/reep/res011">https://doi.org/10.1093/reep/res011</a>
+</div>
+<div id="ref-casey_effects_1995" class="csl-entry" role="listitem">
+Casey, K. E., Dewees, C. M., Turris, B. R., &amp; Wilen, J. E. (1995). The <span>Effects</span> of <span>Individual</span> <span>Vessel</span> <span>Quotas</span> in the <span>British</span> <span>Columbia</span> <span>Halibut</span> <span>Fishery</span>. <em>Marine Resource Economics</em>, <em>10</em>(3), 211–230. <a href="https://doi.org/10.1086/mre.10.3.42629588">https://doi.org/10.1086/mre.10.3.42629588</a>
+</div>
+<div id="ref-clark_projected_2022" class="csl-entry" role="listitem">
+Clark, S., Hubbard, K. A., Ralston, D. K., McGillicuddy, D. J., Stock, C., Alexander, M. A., &amp; Curchitser, E. (2022). Projected effects of climate change on <span>Pseudo</span>-nitzschia bloom dynamics in the <span>Gulf</span> of <span>Maine</span>. <em>Journal of Marine Systems</em>, <em>230</em>, 103737. <a href="https://doi.org/10.1016/j.jmarsys.2022.103737">https://doi.org/10.1016/j.jmarsys.2022.103737</a>
+</div>
+<div id="ref-coase_nature_1937" class="csl-entry" role="listitem">
+Coase, R. H. (1937). The <span>Nature</span> of the <span>Firm</span>. <em>Economica</em>, <em>4</em>(16), 386–405. <a href="https://doi.org/10.1111/j.1468-0335.1937.tb00002.x">https://doi.org/10.1111/j.1468-0335.1937.tb00002.x</a>
+</div>
+<div id="ref-cragg_statistical_1971" class="csl-entry" role="listitem">
+Cragg, J. G. (1971). Some <span>Statistical</span> <span>Models</span> for <span>Limited</span> <span>Dependent</span> <span>Variables</span> with <span>Application</span> to the <span>Demand</span> for <span>Durable</span> <span>Goods</span>. <em>Econometrica</em>, <em>39</em>(5), 829. <a href="https://doi.org/10.2307/1909582">https://doi.org/10.2307/1909582</a>
+</div>
+<div id="ref-dupont_profit_2005" class="csl-entry" role="listitem">
+Dupont, D. P., Fox, K. J., Gordon, D. V., &amp; Grafton, R. Q. (2005). Profit and <span>Price</span> <span>Effects</span> of <span>Multi</span>-species <span>Individual</span> <span>Transferable</span> <span>Quotas</span>. <em>Journal of Agricultural Economics</em>, <em>56</em>(1), 31–57. <a href="https://doi.org/10.1111/j.1477-9552.2005.tb00121.x">https://doi.org/10.1111/j.1477-9552.2005.tb00121.x</a>
+</div>
+<div id="ref-eythorsson_theory_1996" class="csl-entry" role="listitem">
+Eythórsson, E. (1996). Theory and practice of <span>ITQs</span> in <span>Iceland</span>. <span>Privatization</span> of common fishing rights. <em>Marine Policy</em>, <em>20</em>(3), 269–281. <a href="https://doi.org/10.1016/0308-597X(96)00009-7">https://doi.org/10.1016/0308-597X(96)00009-7</a>
+</div>
+<div id="ref-fama_market_1998" class="csl-entry" role="listitem">
+Fama, E. F. (1998). Market efficiency, long-term returns, and behavioral finance. <em>Journal of Financial Economics</em>, <em>49</em>(3), 283–306. <a href="https://doi.org/10.1016/S0304-405X(98)00026-9">https://doi.org/10.1016/S0304-405X(98)00026-9</a>
+</div>
+<div id="ref-fare_productivity_2015" class="csl-entry" role="listitem">
+Färe, R., Grosskopf, S., &amp; Walden, J. (2015). Productivity change and fleet restructuring after transition to individual transferable quota management. <em>Marine Policy</em>, <em>62</em>, 318–325. <a href="https://doi.org/10.1016/j.marpol.2015.05.015">https://doi.org/10.1016/j.marpol.2015.05.015</a>
+</div>
+<div id="ref-fox_property_2003" class="csl-entry" role="listitem">
+Fox, K. J., Grafton, R. Q., Kirkley, J., &amp; Squires, D. (2003). Property rights in a fishery: Regulatory change and firm performance. <em>Journal of Environmental Economics and Management</em>, <em>46</em>(1), 156–177. <a href="https://doi.org/10.1016/S0095-0696(02)00027-X">https://doi.org/10.1016/S0095-0696(02)00027-X</a>
+</div>
+<div id="ref-hare_vulnerability_2016" class="csl-entry" role="listitem">
+Hare, J. A., Morrison, W. E., Nelson, M. W., Stachura, M. M., Teeters, E. J., Griffis, R. B., Alexander, M. A., Scott, J. D., Alade, L., Bell, R. J., Chute, A. S., Curti, K. L., Curtis, T. H., Kircheis, D., Kocik, J. F., Lucey, S. M., McCandless, C. T., Milke, L. M., Richardson, D. E., … Griswold, C. A. (2016). A <span>Vulnerability</span> <span>Assessment</span> of <span>Fish</span> and <span>Invertebrates</span> to <span>Climate</span> <span>Change</span> on the <span>Northeast</span> <span>U</span>.<span>S</span>. <span>Continental</span> <span>Shelf</span>. <em>PLOS ONE</em>, <em>11</em>(2), e0146756. <a href="https://doi.org/10.1371/journal.pone.0146756">https://doi.org/10.1371/journal.pone.0146756</a>
+</div>
+<div id="ref-holland_making_2013" class="csl-entry" role="listitem">
+Holland, D. S. (2013). Making <span>Cents</span> <span>Out</span> of <span>Barter</span> <span>Data</span> from the <span>British</span> <span>Columbia</span> <span>Groundfish</span> <span>ITQ</span> <span>Market</span>. <em>Marine Resource Economics</em>, <em>28</em>(4), 311–330. <a href="https://doi.org/10.5950/0738-1360-28.4.311">https://doi.org/10.5950/0738-1360-28.4.311</a>
+</div>
+<div id="ref-huntington_climate_2016" class="csl-entry" role="listitem">
+Huntington, T. G., Balch, W. M., Aiken, G. R., Sheffield, J., Luo, L., Roesler, C. S., &amp; Camill, P. (2016). Climate change and dissolved organic carbon export to the <span>Gulf</span> of <span>Maine</span>. <em>Journal of Geophysical Research: Biogeosciences</em>, <em>121</em>(10), 2700–2716. <a href="https://doi.org/10.1002/2015JG003314">https://doi.org/10.1002/2015JG003314</a>
+</div>
+<div id="ref-klein_effects_2017" class="csl-entry" role="listitem">
+Klein, E. S., Smith, S. L., &amp; Kritzer, J. P. (2017). Effects of climate change on four <span>New</span> <span>England</span> groundfish species. <em>Reviews in Fish Biology and Fisheries</em>, <em>27</em>(2), 317–338. <a href="https://doi.org/10.1007/s11160-016-9444-z">https://doi.org/10.1007/s11160-016-9444-z</a>
+</div>
+<div id="ref-kroetz_examination_2019" class="csl-entry" role="listitem">
+Kroetz, K., Sanchirico, J. N., Galarza Contreras, E., Corderi Novoa, D., Collado, N., &amp; Swiedler, E. W. (2019). Examination of the <span>Peruvian</span> <span>Anchovy</span> <span>Individual</span> <span>Vessel</span> <span>Quota</span> (<span>IVQ</span>) system. <em>Marine Policy</em>, <em>101</em>, 15–24. <a href="https://doi.org/10.1016/j.marpol.2018.11.008">https://doi.org/10.1016/j.marpol.2018.11.008</a>
+</div>
+<div id="ref-kroetz_evaluation_2017" class="csl-entry" role="listitem">
+Kroetz, K., Sanchirico, J. N., Peña-Torres, J., &amp; Novoa, D. C. (2017). Evaluation of the <span>Chilean</span> <span>Jack</span> <span>Mackerel</span> <span>ITQ</span> <span>System</span>. <em>Marine Resource Economics</em>, <em>32</em>(2), 217–241. <a href="https://doi.org/10.1086/690771">https://doi.org/10.1086/690771</a>
+</div>
+<div id="ref-lee_groundfish_2023" class="csl-entry" role="listitem">
+Lee, M.-Y., &amp; Demarest, C. (2023). Groundfish quota prices. <em>Fisheries Research</em>, <em>260</em>, 106605. <a href="https://doi.org/10.1016/j.fishres.2022.106605">https://doi.org/10.1016/j.fishres.2022.106605</a>
+</div>
+<div id="ref-malkiel_efficient_2003" class="csl-entry" role="listitem">
+Malkiel, B. G. (2003). The <span>Efficient</span> <span>Market</span> <span>Hypothesis</span> and <span>Its</span> <span>Critics</span>. <em>Journal of Economic Perspectives</em>, <em>17</em>(1), 59–82. <a href="https://doi.org/10.1257/089533003321164958">https://doi.org/10.1257/089533003321164958</a>
+</div>
+<div id="ref-murphy_2015_2018" class="csl-entry" role="listitem">
+Murphy, T., Ardini, G., Vasta, M., Kitts, A., Demarest, C., Walden, J., &amp; Caless, D. (2018). <em>2015 <span>Final</span> <span>Report</span> on the <span>Performance</span> of the <span>Northeast</span> <span>Multispecies</span> (<span>Groundfish</span>) <span>Fishery</span> (<span>May</span> 2007 – <span>April</span> 2016)</em>. <a href="https://doi.org/10.25923/vzmy-2y05">https://doi.org/10.25923/vzmy-2y05</a>
+</div>
+<div id="ref-nye_changing_2009" class="csl-entry" role="listitem">
+Nye, J., Link, J., Hare, J., &amp; Overholtz, W. (2009). Changing spatial distribution of fish stocks in relation to climate and population size on the <span>Northeast</span> <span>United</span> <span>States</span> continental shelf. <em>Marine Ecology Progress Series</em>, <em>393</em>, 111–129. <a href="https://doi.org/10.3354/meps08220">https://doi.org/10.3354/meps08220</a>
+</div>
+<div id="ref-pershing_climate_2021" class="csl-entry" role="listitem">
+Pershing, A. J., Alexander, M. A., Brady, D. C., Brickman, D., Curchitser, E. N., Diamond, A. W., McClenachan, L., Mills, K. E., Nichols, O. C., Pendleton, D. E., Record, N. R., Scott, J. D., Staudinger, M. D., &amp; Wang, Y. (2021). Climate impacts on the <span>Gulf</span> of <span>Maine</span> ecosystem. <em>Elementa: Science of the Anthropocene</em>, <em>9</em>(1), 00076. <a href="https://doi.org/10.1525/elementa.2020.00076">https://doi.org/10.1525/elementa.2020.00076</a>
+</div>
+<div id="ref-pershing_slow_2015" class="csl-entry" role="listitem">
+Pershing, A. J., Alexander, M. A., Hernandez, C. M., Kerr, L. A., Le Bris, A., Mills, K. E., Nye, J. A., Record, N. R., Scannell, H. A., Scott, J. D., Sherwood, G. D., &amp; Thomas, A. C. (2015). Slow adaptation in the face of rapid warming leads to collapse of the <span>Gulf</span> of <span>Maine</span> cod fishery. <em>Science</em>, <em>350</em>(6262), 809–812. <a href="https://doi.org/10.1126/science.aac9819">https://doi.org/10.1126/science.aac9819</a>
+</div>
+<div id="ref-pfeiffer_effect_2016" class="csl-entry" role="listitem">
+Pfeiffer, L., &amp; Gratz, T. (2016). The effect of rights-based fisheries management on risk taking and fishing safety. <em>Proceedings of the National Academy of Sciences</em>, <em>113</em>(10), 2615–2620. <a href="https://doi.org/10.1073/pnas.1509456113">https://doi.org/10.1073/pnas.1509456113</a>
+</div>
+<div id="ref-pincinato_impact_2022" class="csl-entry" role="listitem">
+Pincinato, R. B. M., Asche, F., Cojocaru, A. L., Liu, Y., &amp; Roll, K. H. (2022). The <span>Impact</span> of <span>Transferable</span> <span>Fishing</span> <span>Quotas</span> on <span>Cost</span>, <span>Price</span>, and <span>Season</span> <span>Length</span>. <em>Marine Resource Economics</em>, <em>37</em>(1), 53–63. <a href="https://doi.org/10.1086/716728">https://doi.org/10.1086/716728</a>
+</div>
+<div id="ref-pinkerton_elephant_2009" class="csl-entry" role="listitem">
+Pinkerton, E., &amp; Edwards, D. N. (2009). The elephant in the room: <span>The</span> hidden costs of leasing individual transferable fishing quotas. <em>Marine Policy</em>, <em>33</em>(4), 707–713. <a href="https://doi.org/10.1016/j.marpol.2009.02.004">https://doi.org/10.1016/j.marpol.2009.02.004</a>
+</div>
+<div id="ref-record_rise_2021" class="csl-entry" role="listitem">
+Record, N. R., Countway, P. D., Kanwit, K., &amp; Fernández-Robledo, J. A. (2021). Rise of the rare biosphere. <em>Elementa: Science of the Anthropocene</em>, <em>9</em>(1), 00056. <a href="https://doi.org/10.1525/elementa.2020.00056">https://doi.org/10.1525/elementa.2020.00056</a>
+</div>
+<div id="ref-salisbury_rapid_2018" class="csl-entry" role="listitem">
+Salisbury, J. E., &amp; Jönsson, B. F. (2018). Rapid warming and salinity changes in the <span>Gulf</span> of <span>Maine</span> alter surface ocean carbonate parameters and hide ocean acidification. <em>Biogeochemistry</em>, <em>141</em>(3), 401–418. <a href="https://doi.org/10.1007/s10533-018-0505-3">https://doi.org/10.1007/s10533-018-0505-3</a>
+</div>
+<div id="ref-scheld_economic_2012" class="csl-entry" role="listitem">
+Scheld, A. M., Anderson, C. M., &amp; Uchida, H. (2012). The <span>Economic</span> <span>Effects</span> of <span>Catch</span> <span>Share</span> <span>Management</span>: <span>The</span> <span>Rhode</span> <span>Island</span> <span>Fluke</span> <span>Sector</span> <span>Pilot</span> <span>Program</span>. <em>Marine Resource Economics</em>, <em>27</em>(3), 203–228. <a href="https://doi.org/10.5950/0738-1360-27.3.203">https://doi.org/10.5950/0738-1360-27.3.203</a>
+</div>
+<div id="ref-siedlecki_projecting_2021" class="csl-entry" role="listitem">
+Siedlecki, S., Salisbury, J., Gledhill, D., Bastidas, C., Meseck, S., McGarry, K., Hunt, C., Alexander, M., Lavoie, D., Wang, Z., Scott, J., Brady, D., Mlsna, I., Azetsu-Scott, K., Liberti, C., Melrose, D., White, M., Pershing, A., Vandemark, D., … Morrison, R. (2021). Projecting ocean acidification impacts for the <span>Gulf</span> of <span>Maine</span> to 2050. <em>Elementa: Science of the Anthropocene</em>, <em>9</em>(1), 00062. <a href="https://doi.org/10.1525/elementa.2020.00062">https://doi.org/10.1525/elementa.2020.00062</a>
+</div>
+<div id="ref-steiner_crew_2018" class="csl-entry" role="listitem">
+Steiner, E., Russell, S., Vizek, A., &amp; Warlick, A. (2018). Crew in the <span>West</span> <span>Coast</span> <span>Groundfish</span> <span>Catch</span> <span>Share</span> <span>Program</span>: <span>Changes</span> in <span>Compensation</span> and <span>Job</span> <span>Satisfaction</span>. <em>Coastal Management</em>, <em>46</em>(6), 656–676. <a href="https://doi.org/10.1080/08920753.2018.1522495">https://doi.org/10.1080/08920753.2018.1522495</a>
+</div>
+<div id="ref-vasta_network_2019" class="csl-entry" role="listitem">
+Vasta, M. (2019). <em>Network <span>Analysis</span> of the <span>Northeast</span> <span>Multispecies</span> (<span>Groundfish</span>) <span>Annual</span> <span>Catch</span> <span>Entitlement</span> (<span>ACE</span>) <span>Transfer</span> <span>Network</span> (<span>May</span> 2010 – <span>April</span> 2016)</em>. <a href="https://doi.org/10.25923/cnf1-mx82">https://doi.org/10.25923/cnf1-mx82</a>
+</div>
+<div id="ref-walden_productivity_2012" class="csl-entry" role="listitem">
+Walden, J. B., Kirkley, J. E., Färe, R., &amp; Logan, P. (2012). Productivity <span>Change</span> under an <span>Individual</span> <span>Transferable</span> <span>Quota</span> <span>Management</span> <span>System</span>. <em>American Journal of Agricultural Economics</em>, <em>94</em>(4), 913–928. <a href="https://doi.org/10.1093/ajae/aas025">https://doi.org/10.1093/ajae/aas025</a>
+</div>
+<div id="ref-wallace_multi-decadal_2018" class="csl-entry" role="listitem">
+Wallace, E. J., Looney, L. B., &amp; Gong, D. (2018). Multi-<span>Decadal</span> <span>Trends</span> and <span>Variability</span> in <span>Temperature</span> and <span>Salinity</span> in the <span>Mid</span>-<span>Atlantic</span> <span>Bight</span>, <span>Georges</span> <span>Bank</span>, and <span>Gulf</span> of <span>Maine</span>. <em>Journal of Marine Research</em>, <em>76</em>(5), 163–215. <a href="https://doi.org/10.1357/002224018826473281">https://doi.org/10.1357/002224018826473281</a>
+</div>
+<div id="ref-weninger_assessing_1998" class="csl-entry" role="listitem">
+Weninger, Q. (1998). Assessing <span>Efficiency</span> <span>Gains</span> from <span>Individual</span> <span>Transferable</span> <span>Quotas</span>: <span>An</span> <span>Application</span> to the <span>Mid</span>‐<span>Atlantic</span> <span>Surf</span> <span>Clam</span> and <span>Ocean</span> <span>Quahog</span> <span>Fishery</span>. <em>American Journal of Agricultural Economics</em>, <em>80</em>(4), 750–764. <a href="https://doi.org/10.2307/1244061">https://doi.org/10.2307/1244061</a>
+</div>
+<div id="ref-werner_economic_2022" class="csl-entry" role="listitem">
+Werner, S. L. (2022). <em>An <span>Economic</span> <span>Analysis</span> of the <span>Multispecies</span> <span>Catch</span> <span>Share</span> <span>Program</span></em>. <a href="https://doi.org/10.25923/ER07-W293">https://doi.org/10.25923/ER07-W293</a>
+</div>
+</div>
+</section>
+<section id="sec-Tables" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Tables</h1>
+<div id="tbl-LeeDemHurdleGOF" class="anchored">
+<table class="table">
+<caption>Table&nbsp;1: Lee and Demarest (2023) Hurdle Model Goodness of Fit Statistics</caption>
+<tbody>
+<tr class="odd">
+<td>Goodness of Fit</td>
+<td>Exponential</td>
+<td>Linear</td>
+</tr>
+<tr class="even">
+<td>R²</td>
+<td>0.315</td>
+<td>0.367</td>
+</tr>
+<tr class="odd">
+<td>AIC</td>
+<td>916</td>
+<td>932</td>
+</tr>
+<tr class="even">
+<td>BIC</td>
+<td>987</td>
+<td>1008</td>
+</tr>
+<tr class="odd">
+<td>Log Likelihood</td>
+<td>-442</td>
+<td>-449</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-ReplicHurdle" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;2: Lee and Demarest (2023) Hurdle Replication</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Exponential</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Linear</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Quota Remaining [H1]</td>
+<td style="text-align: center;">−0.042</td>
+<td style="text-align: center;">0.030</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fraction Quota Remaining [H1]</td>
+<td style="text-align: center;">−3.530***</td>
+<td style="text-align: center;">−11.334**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fraction of Catch Observed [H1]</td>
+<td style="text-align: center;">0.625</td>
+<td style="text-align: center;">−4.252^</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q2 [H1]</td>
+<td style="text-align: center;">−0.701***</td>
+<td style="text-align: center;">−1.364*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q3 [H1]</td>
+<td style="text-align: center;">−0.888***</td>
+<td style="text-align: center;">−0.641</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q4 [H1]</td>
+<td style="text-align: center;">−1.916***</td>
+<td style="text-align: center;">−4.039***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Intercept [H1]</td>
+<td style="text-align: center;">4.050***</td>
+<td style="text-align: center;">13.656**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Live Price [H2]</td>
+<td style="text-align: center;">0.604***</td>
+<td style="text-align: center;">0.996***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quota Remaining [H2]</td>
+<td style="text-align: center;">−0.139***</td>
+<td style="text-align: center;">−0.223***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fraction of Catch Observed [H2]</td>
+<td style="text-align: center;">2.341***</td>
+<td style="text-align: center;">7.028***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Distance Lag of Quota Remaining [H2]</td>
+<td style="text-align: center;">0.266**</td>
+<td style="text-align: center;">1.112***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Inverse Distance Lag of Quota Remaining [H2]</td>
+<td style="text-align: center;">−0.332**</td>
+<td style="text-align: center;">−1.156***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q2 [H2]</td>
+<td style="text-align: center;">−0.114</td>
+<td style="text-align: center;">−0.453^</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q3 [H2]</td>
+<td style="text-align: center;">−0.258**</td>
+<td style="text-align: center;">−0.569*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q4 [H2]</td>
+<td style="text-align: center;">−0.228*</td>
+<td style="text-align: center;">−0.665*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; box-shadow: 0px 1.5px;">Intercept [H2]</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">−0.754*</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">−2.017***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N</td>
+<td style="text-align: center;">672</td>
+<td style="text-align: center;">672</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N [0]</td>
+<td style="text-align: center;">305</td>
+<td style="text-align: center;">305</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N [Count]</td>
+<td style="text-align: center;">367</td>
+<td style="text-align: center;">367</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R² [0]</td>
+<td style="text-align: center;">0.342</td>
+<td style="text-align: center;">0.341</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R² [Count]</td>
+<td style="text-align: center;">0.518</td>
+<td style="text-align: center;">0.172</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Log Likelihood</td>
+<td style="text-align: center;">−824.798</td>
+<td style="text-align: center;">−898.223</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><sup></sup> ^ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-ClimateAllHurdle" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;3: All Climate Change Variables Hurdle Model</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Exponential Climate</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Linear Climate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept [H1]</td>
+<td style="text-align: center;">4.688***</td>
+<td style="text-align: center;">5.047***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quota Remaining [H1]</td>
+<td style="text-align: center;">−0.138***</td>
+<td style="text-align: center;">−0.006</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fraction Quota Remaining [H1]</td>
+<td style="text-align: center;">−3.857***</td>
+<td style="text-align: center;">−3.365***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fraction of Catch Observed [H1]</td>
+<td style="text-align: center;">1.878*</td>
+<td style="text-align: center;">0.002</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q2 [H1]</td>
+<td style="text-align: center;">−0.762***</td>
+<td style="text-align: center;">−0.638**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q3 [H1]</td>
+<td style="text-align: center;">−1.038***</td>
+<td style="text-align: center;">−0.745**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q4 [H1]</td>
+<td style="text-align: center;">−2.098***</td>
+<td style="text-align: center;">−1.691***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BST Heatwave Maximum [H1]</td>
+<td style="text-align: center;">0.391</td>
+<td style="text-align: center;">0.745*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SST Heatwave Maximum [H1]</td>
+<td style="text-align: center;">0.239</td>
+<td style="text-align: center;">0.084</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BST Heatwave Duration [H1]</td>
+<td style="text-align: center;">−0.004*</td>
+<td style="text-align: center;">−0.005*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SST Heatwave Duration [H1]</td>
+<td style="text-align: center;">−0.007</td>
+<td style="text-align: center;">−0.016</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Storm Days (Waves) [H1]</td>
+<td style="text-align: center;">0.041</td>
+<td style="text-align: center;">0.040</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Storm Days (Wind) [H1]</td>
+<td style="text-align: center;">−0.183***</td>
+<td style="text-align: center;">−0.210***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Intercept [H2]</td>
+<td style="text-align: center;">−1.720***</td>
+<td style="text-align: center;">−12.279***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Live Price [H2]</td>
+<td style="text-align: center;">0.865***</td>
+<td style="text-align: center;">3.143***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quota Remaining [H2]</td>
+<td style="text-align: center;">−0.177***</td>
+<td style="text-align: center;">−0.853**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fraction of Catch Observed [H2]</td>
+<td style="text-align: center;">3.160***</td>
+<td style="text-align: center;">22.034***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Distance Lag of Quota Remaining [H2]</td>
+<td style="text-align: center;">0.198</td>
+<td style="text-align: center;">2.787***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Inverse Distance Lag of Quota Remaining [H2]</td>
+<td style="text-align: center;">−0.286</td>
+<td style="text-align: center;">−2.535**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q2 [H2]</td>
+<td style="text-align: center;">−0.037</td>
+<td style="text-align: center;">−0.501</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q3 [H2]</td>
+<td style="text-align: center;">−0.437**</td>
+<td style="text-align: center;">−1.576*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q4 [H2]</td>
+<td style="text-align: center;">−0.362*</td>
+<td style="text-align: center;">−1.198</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BST Heatwave Maximum [H2]</td>
+<td style="text-align: center;">−0.120</td>
+<td style="text-align: center;">−3.656**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SST Heatwave Maximum [H2]</td>
+<td style="text-align: center;">−0.220</td>
+<td style="text-align: center;">0.692</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BST Heatwave Duration [H2]</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">0.008</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SST Heatwave Duration [H2]</td>
+<td style="text-align: center;">0.018*</td>
+<td style="text-align: center;">0.101*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Storm Days (Waves) [H2]</td>
+<td style="text-align: center;">−0.037</td>
+<td style="text-align: center;">−0.224</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; box-shadow: 0px 1.5px;">Storm Days (Wind) [H2]</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">0.125**</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">0.310</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N</td>
+<td style="text-align: center;">672</td>
+<td style="text-align: center;">672</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N [0]</td>
+<td style="text-align: center;">305</td>
+<td style="text-align: center;">305</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N [Count]</td>
+<td style="text-align: center;">367</td>
+<td style="text-align: center;">367</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R² [0]</td>
+<td style="text-align: center;">0.396</td>
+<td style="text-align: center;">0.406</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R² [Count]</td>
+<td style="text-align: center;">0.454</td>
+<td style="text-align: center;">0.285</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Log Likelihood</td>
+<td style="text-align: center;">−827.253</td>
+<td style="text-align: center;">−825.558</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><sup></sup> ^ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-ClimateSSTHurdle" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;4: Climate Change SST Hurdle Model</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Exponential Climate SST</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Linear Climate SST</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept [H1]</td>
+<td style="text-align: center;">4.020***</td>
+<td style="text-align: center;">4.090***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quota Remaining [H1]</td>
+<td style="text-align: center;">−0.127***</td>
+<td style="text-align: center;">−0.054</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fraction Quota Remaining [H1]</td>
+<td style="text-align: center;">−3.721***</td>
+<td style="text-align: center;">−3.447***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fraction of Catch Observed [H1]</td>
+<td style="text-align: center;">1.912**</td>
+<td style="text-align: center;">1.064</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q2 [H1]</td>
+<td style="text-align: center;">−0.749***</td>
+<td style="text-align: center;">−0.675***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q3 [H1]</td>
+<td style="text-align: center;">−1.010***</td>
+<td style="text-align: center;">−0.853***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q4 [H1]</td>
+<td style="text-align: center;">−2.025***</td>
+<td style="text-align: center;">−1.806***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SST Heatwave Maximum [H1]</td>
+<td style="text-align: center;">0.670***</td>
+<td style="text-align: center;">0.703***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SST Heatwave Duration [H1]</td>
+<td style="text-align: center;">−0.014^</td>
+<td style="text-align: center;">−0.019*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Storm Days (Waves) [H1]</td>
+<td style="text-align: center;">−0.033</td>
+<td style="text-align: center;">−0.031</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Intercept [H2]</td>
+<td style="text-align: center;">−1.521***</td>
+<td style="text-align: center;">−10.906***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Live Price [H2]</td>
+<td style="text-align: center;">0.898***</td>
+<td style="text-align: center;">3.629***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quota Remaining [H2]</td>
+<td style="text-align: center;">−0.203***</td>
+<td style="text-align: center;">−0.896**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fraction of Catch Observed [H2]</td>
+<td style="text-align: center;">3.094***</td>
+<td style="text-align: center;">18.910***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Distance Lag of Quota Remaining [H2]</td>
+<td style="text-align: center;">0.221</td>
+<td style="text-align: center;">2.868**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Inverse Distance Lag of Quota Remaining [H2]</td>
+<td style="text-align: center;">−0.293^</td>
+<td style="text-align: center;">−2.833**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q2 [H2]</td>
+<td style="text-align: center;">−0.065</td>
+<td style="text-align: center;">−0.668</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q3 [H2]</td>
+<td style="text-align: center;">−0.404**</td>
+<td style="text-align: center;">−1.535^</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q4 [H2]</td>
+<td style="text-align: center;">−0.348*</td>
+<td style="text-align: center;">−1.175</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SST Heatwave Maximum [H2]</td>
+<td style="text-align: center;">−0.332^</td>
+<td style="text-align: center;">−1.487</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SST Heatwave Duration [H2]</td>
+<td style="text-align: center;">0.015^</td>
+<td style="text-align: center;">0.086^</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; box-shadow: 0px 1.5px;">Storm Days (Waves) [H2]</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">0.004</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">−0.177</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N</td>
+<td style="text-align: center;">672</td>
+<td style="text-align: center;">672</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N [0]</td>
+<td style="text-align: center;">305</td>
+<td style="text-align: center;">305</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N [Count]</td>
+<td style="text-align: center;">367</td>
+<td style="text-align: center;">367</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R² [0]</td>
+<td style="text-align: center;">0.365</td>
+<td style="text-align: center;">0.368</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R² [Count]</td>
+<td style="text-align: center;">0.442</td>
+<td style="text-align: center;">0.270</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Log Likelihood</td>
+<td style="text-align: center;">−843.291</td>
+<td style="text-align: center;">−843.912</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><sup></sup> ^ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-ReplicOLS" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;5: Lee and Demarest (2023) OLS Replication</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">OLS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: center;">−0.478***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Live Price</td>
+<td style="text-align: center;">0.393***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quota Remaining</td>
+<td style="text-align: center;">−0.005</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fraction of Catch Observed</td>
+<td style="text-align: center;">1.132***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Distance Lag of Quota Remaining</td>
+<td style="text-align: center;">0.340***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Inverse Distance Lag of Quota Remaining</td>
+<td style="text-align: center;">−0.351***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q2</td>
+<td style="text-align: center;">−0.084</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q3</td>
+<td style="text-align: center;">−0.074</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; box-shadow: 0px 1.5px;">Q4</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">−0.120^</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">N</td>
+<td style="text-align: center;">672</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R²</td>
+<td style="text-align: center;">0.236</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adj. R²</td>
+<td style="text-align: center;">0.227</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AIC</td>
+<td style="text-align: center;">1140.175</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BIC</td>
+<td style="text-align: center;">1185.278</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Log Likelihood</td>
+<td style="text-align: center;">−560.088</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><sup></sup> ^ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-ClimateOLS" class="anchored">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Table&nbsp;6: Climate Change OLS</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">OLS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: center;">−0.366*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Live Price</td>
+<td style="text-align: center;">0.383***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quota Remaining</td>
+<td style="text-align: center;">−0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fraction of Catch Observed</td>
+<td style="text-align: center;">1.301***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Distance Lag of Quota Remaining</td>
+<td style="text-align: center;">0.404***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Inverse Distance Lag of Quota Remaining</td>
+<td style="text-align: center;">−0.381***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SST Heatwave Maximum</td>
+<td style="text-align: center;">0.035</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SST Heatwave Duration</td>
+<td style="text-align: center;">−0.003</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Storm Days (Waves)</td>
+<td style="text-align: center;">−0.034**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Q2</td>
+<td style="text-align: center;">−0.068</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Q3</td>
+<td style="text-align: center;">−0.045</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; box-shadow: 0px 1.5px;">Q4</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">−0.079</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">N</td>
+<td style="text-align: center;">672</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R²</td>
+<td style="text-align: center;">0.245</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adj. R²</td>
+<td style="text-align: center;">0.233</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AIC</td>
+<td style="text-align: center;">1138.396</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BIC</td>
+<td style="text-align: center;">1197.030</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Log Likelihood</td>
+<td style="text-align: center;">−556.198</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><sup></sup> ^ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+
+
+</div>
+</div>
+</section>
+<section id="sec-Figures" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Figures</h1>
+<div class="cell" data-fig-cap-location="margin">
+<div class="cell-output-display">
+<div id="fig-QuotaPriceDist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Rough1_files/figure-html/fig-QuotaPriceDist-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Distribution of Per Pound Price of NMGF Quota</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-fig-cap-location="margin">
+<div class="cell-output-display">
+<div id="fig-QuotaLogPriceDist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Rough1_files/figure-html/fig-QuotaLogPriceDist-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Distribution of Log Per Pound Price of NMGF Quota</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-fig-cap-location="margin">
+<div class="cell-output-display">
+<div id="fig-ClimateTempAnomoly" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Rough1_files/figure-html/fig-ClimateTempAnomoly-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Maximum Heatwave Temperatures Reached</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-fig-cap-location="margin">
+<div class="cell-output-display">
+<div id="fig-ClimateHeatwaveDuration" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Rough1_files/figure-html/fig-ClimateHeatwaveDuration-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Duration of Heatwaves measured at BST and SST</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-fig-cap-location="margin">
+<div class="cell-output-display">
+<div id="fig-ClimateStormDays" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Rough1_files/figure-html/fig-ClimateStormDays-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Storm Days Classified by Wave Height and Wind Speed</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
